@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Wadio</title>
+  @@include('links/_head.html')
+</head>
+
+<body>
+  <div class="main-wrapper">
+    @@include('components/_header.html')
+    <div class="scene"></div>
+    <main class="main">
+      <section class="section hero" style="background-image: url(img/home/galaxy.png);">
+        <div class="hero-b">
+          <div class="ellipse ellipse_1"></div>
+          <div class="ellipse ellipse_2"></div>
+          <div class="ellipse ellipse_3"></div>
+          <div class="ellipse ellipse_4"></div>
+        </div>
+
+        <div class="container">
+          <div class="hero__content">
+            <h1 class="title-1 hero__title">Where your music journey begins</h1>
+            <p>The first social music platform that helps you transcend your music horizon with human curated beats from
+              radio across
+              the globe.</p>
+            <div class="btn-group">
+              <button class="btn">
+                <svg class="svg-icon">
+                  <use xlink:href="img/svg/sprite-svg/sprite.svg#download">
+                  </use>
+                </svg>
+                <span class="btn__box">
+                  Get App
+                </span>
+              </button>
+              <button class="btn">
+                <svg class="svg-icon">
+                  <use xlink:href="img/svg/sprite-svg/sprite.svg#share">
+                  </use>
+                </svg>
+                <span class="btn__box">
+                  Share App
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="mask">
+          <div class="waves">
+            <svg>
+              <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+                <feTurbulence id="sea-filter" numOctaves="1" seed="1" baseFrequency="1 1"></feTurbulence>
+                <feDisplacementMap scale="5" in="SourceGraphic"></feDisplacementMap>
+                <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1"
+                  values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite" />
+              </filter>
+            </svg>
+          </div>
+        </div> -->
+      </section>
+    </main>
+  </div>
+
+  @@include('links/_scripts.html')
+</body>
+
+</html>

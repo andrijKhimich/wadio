@@ -1,0 +1,29 @@
+.hero {
+  padding-top: 122px;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__title {
+    padding: 88px 0 20px 0;
+    display: inline-block;
+    background: -webkit-linear-gradient(#5D8EFF, #00E482);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    max-width: 670px;
+
+    p {
+      max-width: 530px;
+    }
+  }
+}
+
+.how-it-works {}
