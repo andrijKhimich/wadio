@@ -1,34 +1,4 @@
-@keyframes scrollBtnBefore {
-  0% {
-    opacity: 0;
-    top: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    top: 8px;
-  }
-}
-
-@keyframes scrollBtnAfter {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.show-on-load {
+.js-show-on-load {
   opacity: 1;
   transform: matrix(1, 0, 0, 1, 0, 0);
   transition: opacity $duration $timing, transform $duration $timing;
@@ -45,20 +15,14 @@
   opacity: 0;
 }
 
-.js-slideRight {
+.js-slide-right {
   opacity: 0;
-  transform: translate(50px, 0);
+  transform: translate(20px, 0);
 }
 
-.js-slideLeft {
+.js-slide-left {
   opacity: 0;
-  transform: translate(-50px, 0);
-}
-
-.js-show-onload {
-  transform: translate(0, 0) rotate(0);
-  opacity: 1;
-  transition: transform .8s cubic-bezier(0.6, 0, 0.41, 1), opacity .8s cubic-bezier(0.6, 0, 0.41, 1);
+  transform: translate(-20px, 0);
 }
 
 .show-words {
@@ -71,7 +35,201 @@
   opacity: 0;
 }
 
-.js-slideTop {
+.js-slide-top {
   opacity: 0;
-  transform: translate(0, 50px);
+  transform: translate(0, 20px);
+}
+
+.js-slide-down {
+  opacity: 0;
+  transform: translate(0, -20px);
+}
+
+// preload logo animation
+.preload-logo {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  path {
+    fill: transparent;
+    stroke-width: 20;
+    stroke-dasharray: 950;
+    stroke-dashoffset: 950;
+    transform-origin: center;
+    // animation: preload-logo linear 4s forwards;
+  }
+}
+
+.line1 {
+  stroke: #5D8EFF;
+}
+
+.line2 {
+  stroke: #00E482;
+}
+
+@keyframes preload-logo {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  50.1% {
+    stroke-dashoffset: 1900;
+  }
+
+  100% {
+    stroke-dashoffset: 950;
+  }
+}
+
+
+// logo animation
+.logo {
+  max-width: 151px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+
+  &.animate {
+    animation: animiateLogo 4s linear normal forwards;
+
+    .logo-svg {
+      .logo-svg_bounce {
+        transform: translate(0, 0);
+      }
+
+      .logo-svg_letter {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+  }
+}
+
+.logo-svg {
+  position: relative;
+  width: 151px;
+
+
+  &_letter {
+    position: absolute;
+    opacity: 0;
+    transition: opacity linear 1s, transform linear 1s;
+    transition-delay: 2s;
+
+    &._w {
+      transform: translate(10%, 0);
+    }
+
+    &._a {
+      transform: translate(0%, 0);
+    }
+
+    &._d {
+      transform: translate(-10%, 0);
+    }
+
+    &._i {
+      transform: translate(-15%, 0);
+    }
+
+    &._o {
+      transform: translate(-20%, 0);
+    }
+
+  }
+
+  &_bounce {
+    position: absolute;
+    transform-origin: center;
+    transform: translate(40%, 0);
+    transition: transform 1s linear;
+    transition-delay: 2s;
+  }
+}
+
+@keyframes animiateLogo {
+
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0);
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+  }
+
+  10% {
+    transform: translate(-50%, -50%) scale(0) rotate(0);
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+  }
+
+  20% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(0);
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+  }
+
+  30% {
+    transform: translate(-50%, -50%) scale(2.4) rotate(-25deg);
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+  }
+
+  40% {
+    transform: translate(-50%, -50%) scale(2) rotate(-12.5deg);
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(2) rotate(0);
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+  }
+
+  60% {
+    transform: translate(-50%, -50%) scale(2) rotate(0);
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(2) rotate(0);
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+  }
+
+  80% {
+    transform: translate(-50%, -50%) scale(2) rotate(0);
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+  }
+
+  90% {
+    transform: translate(0, 0) scale(1.5) rotate(0);
+    top: 25%;
+    left: 25%;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+    left: 0;
+    transform: translate(80%, 80%) scale(1) rotate(0);
+  }
 }
