@@ -49,27 +49,31 @@ h6 {
   margin: 0;
   font-weight: 700;
   letter-spacing: .02em;
+  color: $titleColor;
 }
 
-h1 {
+h1,
+h2 {
   font-size: 90px;
-  // font-size: 4.375rem;
   line-height: 1.286em;
   text-transform: uppercase;
+  margin: 20px 0;
 
   @include d(1440) {
     font-size: 70px;
   }
 }
 
-h2 {
-  font-size: 3.75rem;
-  line-height: 1.172em;
-}
-
 h3 {
-  font-size: 48px;
-  line-height: 1.12em;
+  font-size: 70px;
+  text-transform: uppercase;
+  line-height: 1.172em;
+  margin: 16px 20px 16px 0;
+  letter-spacing: .06em;
+
+  @include d(1440) {
+    font-size: 58px;
+  }
 }
 
 h4 {
@@ -167,6 +171,53 @@ ol {
   position: relative;
   height: 100vh;
   box-sizing: border-box;
+  overflow: hidden;
+
+  &__row {
+    display: flex;
+    // justify-content: flex-start;
+    // align-items: flex-start;
+  }
+
+  &__content,
+  .section__img {
+    width: 100%;
+    max-width: 50%;
+    position: relative;
+  }
+
+  &__text {
+    margin: 33px 0;
+    max-width: 500px;
+  }
+
+  &_inner {
+    // padding-top: 205px;
+    padding-top: 14%;
+  }
+
+  &-list {
+    margin-top: 50px;
+
+    &__item {
+      position: relative;
+      padding-left: 20px;
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+      &::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        background-color: $primary-green;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 13px;
+        
+      }
+    }
+  }
 }
 
 blockquote,
@@ -328,9 +379,17 @@ canvas {
     background: linear-gradient(165deg, rgba(#D7E3FF, .5), rgba(#5D97EE, .5));
   }
 
+  &_download {
+    text-align: left;
+    color: $white;
+
+    .btn__box {
+      padding: 10px 23px 10px 25px;
+
+    }
+  }
+
   &__box {
-    // border-left: 1px solid $textColor;
-    // position: relative;
     position: relative;
     padding: 14px 23px 14px 25px;
 
@@ -345,7 +404,22 @@ canvas {
     }
   }
 
+  &__cta {
+    display: block;
+    font-size: 9px;
+    font-weight: 700;
+  }
+
   .svg-icon {
+    padding: 15px;
+  }
+
+  img,
+  picture {
+    width: 16px;
+  }
+
+  picture {
     padding: 15px;
   }
 }
@@ -419,4 +493,47 @@ canvas {
     left: -19vw;
     z-index: 0;
   }
+}
+
+.subtitle {
+  text-transform: uppercase;
+  font-weight: 800;
+  color: $textColor;
+}
+
+
+.decor-text {
+  font-size: 360px;
+  font-weight: 700;
+  color: $textColor;
+  opacity: .1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition: transform 3s $timing, opacity 3s $timing;
+  z-index: -1;
+
+  &.animate {
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+.equalizer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/equalizer.svg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  filter: url("#turbulence");
+  z-index: -1;
 }
