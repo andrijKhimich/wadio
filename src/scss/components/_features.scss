@@ -1,5 +1,5 @@
 .features {
-  position: relative;
+  // position: relative;
   z-index: 1;
 
   &__img {
@@ -9,6 +9,7 @@
         .features__media_2 {
           transform: rotate(0);
         }
+
         .features__media_1 {
           transform: rotate(15deg);
         }
@@ -23,9 +24,8 @@
     // max-width: 18vw;
     top: -20px;
     right: 135px;
-    transition: transform .6s $timing;
-
-
+    transition: transform 1s $timing;
+    pointer-events: none;
     &_1 {
       transform-origin: right bottom;
     }
@@ -35,7 +35,7 @@
       right: 13vw;
       top: 60px;
       transform-origin: left bottom;
-      transform: rotate(-15deg);
+      transform: rotate(-5deg);
       z-index: -1;
     }
   }
@@ -86,7 +86,7 @@
     transform: translate(2px, 2px);
     stroke-dasharray: 100;
     stroke-dashoffset: 100;
-    animation: paginationCircle 2s linear infinite;
+    // animation: paginationCircle 2s linear infinite;
   }
 }
 

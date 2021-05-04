@@ -26,6 +26,7 @@ body {
   &::-webkit-scrollbar {
     width: 6px;
     background-color: $textColor;
+    display: none;
   }
 
   &::-webkit-scrollbar-track {
@@ -168,15 +169,62 @@ ol {
 }
 
 .section {
-  position: relative;
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
+  opacity: 0;
+  transition: opacity 1s linear;
+
+  &.active {
+    opacity: 1;
+
+    .js-move-top,
+    .js-move-down {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    .decor-text {
+      transform: translate(0, -50%);
+      opacity: .05;
+    }
+
+    .circle circle {
+      animation: paginationCircle 2s linear forwards;
+    }
+
+    .section__img {
+      transform: scale(1) rotate(0deg);
+    }
+
+    .features__media {
+      pointer-events: initial;
+    }
+
+    .features__media_2 {
+      transform: rotate(-15deg);
+    }
+
+    // .section__title,
+    // .section__text {
+    //   transform: translate(0, 0);
+    //   opacity: 1;
+    // }
+
+    .equalizer {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
 
   &__row {
     display: flex;
-    // justify-content: flex-start;
-    // align-items: flex-start;
+  }
+
+
+  &__img {
+    transform: scale(1.1) rotate(10deg);
+    transition: transform 1s linear;
   }
 
   &__content,
@@ -184,11 +232,25 @@ ol {
     width: 100%;
     max-width: 50%;
     position: relative;
+
+    // z-index: 10;
+    &_right {
+      margin-left: 173px;
+    }
+  }
+
+  &__title {
+    transform: translate(0, -20px);
+    opacity: 0;
+    transition: transform $duration $timing, opacity $duration $timing;
   }
 
   &__text {
     margin: 33px 0;
     max-width: 500px;
+    transform: translate(0, 20px);
+    opacity: 0;
+    transition: transform $duration $timing, opacity $duration $timing;
   }
 
   &_inner {
@@ -202,9 +264,11 @@ ol {
     &__item {
       position: relative;
       padding-left: 20px;
+
       &:not(:last-child) {
         margin-bottom: 16px;
       }
+
       &::before {
         content: "";
         width: 5px;
@@ -214,7 +278,7 @@ ol {
         position: absolute;
         left: 0;
         top: 13px;
-        
+
       }
     }
   }
@@ -324,9 +388,14 @@ textarea {
 .main-wrapper {
   position: relative;
   overflow: hidden;
+  height: 100vh;
   background-color: $black;
   opacity: 1;
   transition: opacity $duration $timing;
+}
+
+.pp-tableCell {
+  vertical-align: baseline;
 }
 
 .container {
@@ -506,20 +575,20 @@ canvas {
   font-size: 360px;
   font-weight: 700;
   color: $textColor;
-  opacity: .1;
+  opacity: 0;
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translate(0, -50%);
+  transform: translate(-50%, -50%);
   white-space: nowrap;
   text-transform: uppercase;
   transition: transform 3s $timing, opacity 3s $timing;
   z-index: -1;
 
-  &.animate {
-    transform: translate(-50%, -50%);
-    opacity: 0;
-  }
+  // &.animate {
+  //   transform: translate(-50%, -50%);
+  //   opacity: 0;
+  // }
 }
 
 .equalizer {
@@ -536,4 +605,21 @@ canvas {
   background-size: contain;
   filter: url("#turbulence");
   z-index: -1;
+  transform: translate(0, 50px);
+  opacity: 0;
+  transition: transform 3s $timing, opacity 3s $timing;
+}
+
+.js-screen {
+  // opacity: 0;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // bottom: 0;
+  // right: 0;
+  // transition: opacity, 4s ease;
+
+  &.active {
+    // opacity: 1;
+  }
 }

@@ -5,10 +5,8 @@
 }
 
 // classes for animation
-.js-show {
-  transform: translate(0, 0) rotate(0);
-  opacity: 1;
-  transition: transform .8s cubic-bezier(0.6, 0, 0.41, 1), opacity .8s cubic-bezier(0.6, 0, 0.41, 1);
+.js-show-on-scroll {
+  transition: opacity $duration $timing, transform $duration $timing;
 }
 
 .js-fadeIn {
@@ -25,25 +23,29 @@
   transform: translate(-20px, 0);
 }
 
-.show-words {
-  opacity: 1;
-  transform: matrix(1, 0, 0, 1, 0, 0);
-  transition: opacity $duration $timing, transform $duration $timing;
+.js-slide-top, .js-move-top {
+  opacity: 0;
+  transform: translate(0, 20px);
+}
+
+.js-slide-down, .js-move-down {
+  opacity: 0;
+  transform: translate(0, -20px);
 }
 
 .hide-content {
   opacity: 0;
 }
 
-.js-slide-top {
-  opacity: 0;
-  transform: translate(0, 20px);
-}
+// .js-show-top {
+//   opacity: 0;
+//   transform: translate(0, 20px);
+// }
 
-.js-slide-down {
-  opacity: 0;
-  transform: translate(0, -20px);
-}
+// .js-show-down {
+//   opacity: 0;
+//   transform: translate(0, -20px);
+// }
 
 // preload logo animation
 .preload-logo {

@@ -36,14 +36,15 @@
         d="M446.346 480.64C393.513 493.807 273.546 496.44 216.346 401.64C144.846 283.14 237.346 179.64 335.846 195.64C434.346 211.64 443.846 401.64 312.346 378.14C287.846 373.761 265.646 341.44 296.846 298.64"
         stroke="#678FF7" stroke-width="9" stroke-linecap="round" />
     </svg>
-    <main class="main">
-      <section class="section hero">
-        <div class="hero-bg js-hero-bg js-active" style="background-image: url(img/home/galaxy.png);">
-          <div class="ellipse ellipse_1" style="background-image: url(img/home/ellipse1.png);"></div>
-          <div class="ellipse ellipse_2" style="background-image: url(img/home/ellipse2.png);"></div>
-          <div class="ellipse ellipse_3" style="background-image: url(img/home/ellipse3.png);"></div>
-          <div class="ellipse ellipse_4" style="background-image: url(img/home/ellipse4.png);"></div>
-        </div>
+
+    <main class="main js-page">
+      <div class="hero-bg js-hero-bg js-active" style="background-image: url(img/home/galaxy.png);">
+        <div class="ellipse ellipse_1" style="background-image: url(img/home/ellipse1.png);"></div>
+        <div class="ellipse ellipse_2" style="background-image: url(img/home/ellipse2.png);"></div>
+        <div class="ellipse ellipse_3" style="background-image: url(img/home/ellipse3.png);"></div>
+        <div class="ellipse ellipse_4" style="background-image: url(img/home/ellipse4.png);"></div>
+      </div>
+      <section class="section active js-screen hero">
         <div class="container">
           <div class="section__row">
             <div class="hero__content">
@@ -89,28 +90,28 @@
               </filter>
             </svg> -->
         </div>
-        <a href="#" class="scroll-down js-show-on-load js-slide-top"></a>
+        <a href="#" class="scroll-down js-slide-top"></a>
       </section>
-      <section class="section section_inner download">
-        <p class="decor-text animate">
+      <section class="section js-screen section_inner download">
+        <p class="decor-text">
           Get The App
         </p>
         <div class="container">
           <div class="section__row">
             <div class="section__content">
-              <div class="section__title">
+              <div class="section__title js-show-on-scroll js-move-down">
                 <p class="subtitle">GET THE APP</p>
                 <h3 class="title-3">
                   Start <br>
                   your music journey now
                 </h3>
               </div>
-              <div class="section__text">
+              <div class="section__text js-show-on-scroll js-move-top">
                 <p>Wadio is the first social music platform where artists, radio personalities, fans and friends connect
                   thru radio to
                   chat, share, discover and experience world beats together!</p>
               </div>
-              <div class="btn-group">
+              <div class="btn-group js-show-on-scroll js-move-top">
                 <button class="btn btn_download">
                   <img src="img/apple.svg" alt="apple">
                   <span class="btn__box">
@@ -128,9 +129,8 @@
               </div>
             </div>
           </div>
-
         </div>
-        <div class="equalizer js-show-on-load js-slide-top">
+        <div class="equalizer">
           <!-- <svg>
             <filter id="turbulence" x="0" y="0" width="100%" height="100%">
               <feTurbulence id="sea-filter" numOctaves="1" seed="1" baseFrequency="1 1"></feTurbulence>
@@ -141,27 +141,24 @@
           </svg> -->
         </div>
       </section>
-      <section class="section section_inner features radio">
-        <p class="decor-text animate">
-          Features
-        </p>
+      <section class="section js-screen section_inner features radio">
         <div class="container">
           <div class="section__row">
             <div class="section__content">
-              <div class="section__title">
-                <p class="subtitle">GET THE APP</p>
+              <div class="section__title js-show-on-scroll js-move-down">
+                <p class="subtitle">Features</p>
                 <h2 class="title-2">
                   World radio
                 </h2>
               </div>
-              <div class="section__text">
+              <div class="section__text js-show-on-scroll js-move-top">
                 <p>Let us help you travel the world. Spin the globe to tune in and discover music as a local with real
                   music curators,
                   artists, and radio personalities worldwide.</p>
               </div>
               <div class="pagination__row">
                 <ul class="pagination__list">
-                  <li class="pagination__item active">
+                  <!-- <li class="pagination__item active">
                     <a href="#" class="pagination__link"></a>
                   </li>
                   <li class="pagination__item">
@@ -178,7 +175,7 @@
                   </li>
                   <li class="pagination__item">
                     <a href="#" class="pagination__link"></a>
-                  </li>
+                  </li> -->
                 </ul>
                 <svg class="circle">
                   <circle cx="15" cy="15" r="15"></circle>
@@ -194,11 +191,183 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="section js-screen section_inner features chat">
+        <div class="container">
+          <div class="section__row">
+            <div class="section__content">
+              <div class="section__title js-show-on-scroll js-move-down">
+                <p class="subtitle">Features</p>
+                <h2 class="title-2">
+                  LIVE CHAT
+                </h2>
+              </div>
+              <div class="section__text js-show-on-scroll js-move-top">
+                <p>Let us help you travel the world. Spin the globe to tune in and discover music as a local with real
+                  music curators,
+                  artists, and radio personalities worldwide.</p>
+              </div>
+              <div class="pagination__row">
+                <ul class="pagination__list">
+                </ul>
+                <svg class="circle">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="section__img features__img">
+              <div class="features__media features__media_1">
+                <img src="img/home/chat1.png" alt="radio">
+              </div>
+              <div class="features__media features__media_2">
+                <img src="img/home/chat2.png" alt="radio">
+              </div>
+            </div>
+          </div>
 
         </div>
       </section>
-      <section class="section section_inner music">
-        <div class="music-waves js-show-on-load js-slide-top">
+      <section class="section js-screen section_inner features profiles">
+        <div class="container">
+          <div class="section__row">
+            <div class="section__content">
+              <div class="section__title js-show-on-scroll js-move-down">
+                <p class="subtitle">Features</p>
+                <h2 class="title-2">
+                  Profiles
+                </h2>
+              </div>
+              <div class="section__text js-show-on-scroll js-move-top">
+                <p>Let us help you travel the world. Spin the globe to tune in and discover music as a local with real
+                  music curators,
+                  artists, and radio personalities worldwide.</p>
+              </div>
+              <div class="pagination__row">
+                <ul class="pagination__list">
+                </ul>
+                <svg class="circle">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="section__img features__img">
+              <div class="features__media features__media_1">
+                <img src="img/home/profiles1.png" alt="radio">
+              </div>
+              <div class="features__media features__media_2">
+                <img src="img/home/profiles2.png" alt="radio">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section js-screen section_inner features tunes">
+        <div class="container">
+          <div class="section__row">
+            <div class="section__content">
+              <div class="section__title js-show-on-scroll js-move-down">
+                <p class="subtitle">Features</p>
+                <h2 class="title-2">
+                  SYNC TUNES
+                </h2>
+              </div>
+              <div class="section__text js-show-on-scroll js-move-top">
+                <p>Let us help you travel the world. Spin the globe to tune in and discover music as a local with real
+                  music curators,
+                  artists, and radio personalities worldwide.</p>
+              </div>
+              <div class="pagination__row">
+                <ul class="pagination__list">
+                </ul>
+                <svg class="circle">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="section__img features__img">
+              <div class="features__media features__media_1">
+                <img src="img/home/tunes1.png" alt="radio">
+              </div>
+              <div class="features__media features__media_2">
+                <img src="img/home/tunes2.png" alt="radio">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <section class="section js-screen section_inner features chart">
+        <div class="container">
+          <div class="section__row">
+            <div class="section__content">
+              <div class="section__title js-show-on-scroll js-move-down">
+                <p class="subtitle">Features</p>
+                <h2 class="title-2">
+                  MUSIC CHARTS
+                </h2>
+              </div>
+              <div class="section__text js-show-on-scroll js-move-top">
+                <p>Let us help you travel the world. Spin the globe to tune in and discover music as a local with real
+                  music curators,
+                  artists, and radio personalities worldwide.</p>
+              </div>
+              <div class="pagination__row">
+                <ul class="pagination__list">
+                </ul>
+                <svg class="circle">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="section__img features__img">
+              <div class="features__media features__media_1">
+                <img src="img/home/chart1.png" alt="radio">
+              </div>
+              <div class="features__media features__media_2">
+                <img src="img/home/chart2.png" alt="radio">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <section class="section js-screen section_inner features messaging">
+        <div class="container">
+          <div class="section__row">
+            <div class="section__content">
+              <div class="section__title js-show-on-scroll js-move-down">
+                <p class="subtitle">Features</p>
+                <h2 class="title-2">
+                  Messaging
+                </h2>
+              </div>
+              <div class="section__text js-show-on-scroll js-move-top">
+                <p>Let us help you travel the world. Spin the globe to tune in and discover music as a local with real
+                  music curators,
+                  artists, and radio personalities worldwide.</p>
+              </div>
+              <div class="pagination__row">
+                <ul class="pagination__list">
+                </ul>
+                <svg class="circle">
+                  <circle cx="15" cy="15" r="15"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="section__img features__img">
+              <div class="features__media features__media_1">
+                <img src="img/home/messaging1.png" alt="radio">
+              </div>
+              <div class="features__media features__media_2">
+                <img src="img/home/messaging2.png" alt="radio">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section js-screen section_inner music">
+        <div class="music-waves js-slide-top">
           <!-- <svg>
                               <filter id="turbulence" x="0" y="0" width="100%" height="100%">
                                 <feTurbulence id="sea-filter" numOctaves="1" seed="1" baseFrequency="1 1"></feTurbulence>
@@ -213,13 +382,13 @@
             <div class="section__img music__img">
 
             </div>
-            <div class="section__content music__content">
-              <div class="section__title">
+            <div class="section__content section__content_right">
+              <div class="section__title js-show-on-scroll js-move-down">
                 <h2 class="title-2">
                   Music
                 </h2>
               </div>
-              <div class="section__text">
+              <div class="section__text js-show-on-scroll js-move-top">
                 <p>Unearth your music roots and be inspired and entertained by our global community of artists, radio
                   personalities and
                   friends!</p>
@@ -230,6 +399,79 @@
                   <li class="section-list__item">Be a DJ and play music with friends in real-time</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section js-screen section_inner social">
+        <div class="social-waves js-slide-top">
+          <!-- <svg>
+                                        <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+                                          <feTurbulence id="sea-filter" numOctaves="1" seed="1" baseFrequency="1 1"></feTurbulence>
+                                          <feDisplacementMap scale="5" in="SourceGraphic"></feDisplacementMap>
+                                          <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1"
+                                            values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite" />
+                                        </filter>
+                                      </svg> -->
+        </div>
+        <div class="container">
+          <div class="section__row">
+            <div class="section__img social__img">
+
+            </div>
+            <div class="section__content section__content_right">
+              <div class="section__title js-show-on-scroll js-move-down">
+                <h2 class="title-2">
+                  Social
+                </h2>
+              </div>
+              <div class="section__text js-show-on-scroll js-move-top">
+                <p>Connect with friends and experience music and live shows together with your favorite artists, radio
+                  personalities.</p>
+                <ul class="section-list">
+                  <li class="section-list__item">Connect with artists, radio, and friends</li>
+                  <li class="section-list__item">Develop and share your music profile</li>
+                  <li class="section-list__item">Participate in radio and artists live video chat</li>
+                  <li class="section-list__item">Join our immense community of music fanatics!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section js-screen section_inner discover">
+        <div class="social-waves js-slide-top">
+          <!-- <svg>
+                                                    <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+                                                      <feTurbulence id="sea-filter" numOctaves="1" seed="1" baseFrequency="1 1"></feTurbulence>
+                                                      <feDisplacementMap scale="5" in="SourceGraphic"></feDisplacementMap>
+                                                      <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1"
+                                                        values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite" />
+                                                    </filter>
+                                                  </svg> -->
+        </div>
+        <div class="container">
+          <div class="section__row">
+            <div class="section__content discover__content">
+              <div class="section__title js-show-on-scroll js-move-down">
+                <h2 class="title-2">
+                  Discover
+                </h2>
+              </div>
+              <div class="section__text js-show-on-scroll js-move-top">
+                <p>Expand your music horizon with cultural curated beats from the heart and soul of live radio
+                  communities around the
+                  globe!</p>
+                <ul class="section-list">
+                  <li class="section-list__item">+40k radio stations worldwide</li>
+                  <li class="section-list__item">Listen and share with friends</li>
+                  <li class="section-list__item">Locate music by language and region</li>
+                  <li class="section-list__item">Find trending and top artists by country</li>
+                </ul>
+              </div>
+            </div>
+            <div class="section__img social__img">
+
             </div>
           </div>
         </div>

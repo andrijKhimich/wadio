@@ -163,48 +163,150 @@
 
 // START *************************************************************************
 
-const heroBg = document.querySelector('.js-hero-bg');
-const logo = document.querySelector('.logo');
-const showOnLoadEl = document.querySelectorAll('.js-show-on-load');
-console.log(showOnLoadEl);
+const heroBg = $('.js-hero-bg');
+const logo = $('.logo');
+const showOnLoadEl = $('.js-show-on-load');
+// console.log(showOnLoadEl);
 
 function preloader() {
 
-  logo.classList.add('animate');
+  logo.addClass('animate');
 
   setTimeout(function () {
-    heroBg.classList.remove('js-active');
+    heroBg.addClass('js-active');
   }, 2000);
 
   setTimeout(function () {
-    for (let i = 0; i < showOnLoadEl.length; i++) {
-      showOnLoadEl[i].classList.remove('js-slide-top', 'js-slide-down');
-    }
+    showOnLoadEl.removeClass('js-slide-top js-slide-down');
   }, 3000);
 }
 
 // main menu functionality
-const burger = document.querySelector('.js-burger');
-const headerMenu = document.querySelector('.js-menu');
+const burger = $('.js-burger');
+const headerMenu = $('.js-menu');
 
 function openMenu() {
-  burger.classList.toggle('open');
-  headerMenu.classList.toggle('open');
+  burger.toggleClass('open');
+  headerMenu.toggleClass('open');
 }
 
 function closeMenu() {
-  burger.classList.remove('open');
-  headerMenu.classList.remove('open');
+  burger.removeClass('open');
+  headerMenu.removeClass('open');
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+
+const screen = $('.js-screen');
+
+let featuresSections = $('.features');
+let pointsLenght = featuresSections.length - 1;
+let pagination = $(".pagination__list");
+let paginationItem;
+// let paginationLink;
+
+// function generatePager(pagination) {
+for (let i = 0; i <= pointsLenght; i++) {
+  // console.log(i);
+  paginationItem = $("<li>").addClass("pagination__item").appendTo(pagination);
+  // paginationLink = $("<a>").addClass("pagination__link").appendTo(paginationItem);
+}
+$(document).ready(function () {
+
   console.log('DOM полностью загружен и разобран');
   preloader();
 
-  burger.addEventListener('click', function () {
+  burger.on('click', function () {
     openMenu();
   })
-})
+
+
+
+
+  // $(window).bind('mousewheel', function () {
+  let activeFeatures = $('.js-page').children('.features').index() - 3;
+  console.log(activeFeatures);
+  // let activeFeatures = featuresSections.index();
+  // $('.js-page').children('.features.active').index();
+  // console.log();
+
+  // console.log(activeFeatures);
+  // console.log(paginationItem);
+  // console.log(activeFeatures);
+  // $('.pagination__item').removeClass('.active');
+  // paginationItem.eq(activeFeatures).addClass('active');
+  $(".pagination__list").each(function () {
+    console.log($(this).children());
+    $(this).children().each(function () {
+      $('.pagination__item').eq(activeFeatures).addClass('active');
+    });
+    // $(this).toggleClass("example");
+    // $(".pagination__list").each(function () {
+    //   $('.pagination__item').eq(activeFeatures).addClass('active');
+    // });
+
+  });
+  // });
+  // $('.pagination__item').eq(activeFeatures).addClass('active');
+
+  $('.js-page').pagepiling({
+    menu: null,
+    // direction: 'vertical',
+    verticalCentered: false,
+    sectionsColor: [],
+    anchors: [],
+    scrollingSpeed: 0,
+    easing: 'linear',
+    loopBottom: true,
+    loopTop: false,
+    css3: true,
+    // navigation: {
+    //   'textColor': '#fff',
+    //   'bulletsColor': '#fff',
+    //   'position': 'right',
+    //   'tooltips': ['section1', 'section2', 'section3', 'section4']
+    // },
+    normalScrollElements: null,
+    normalScrollElementTouchThreshold: 1,
+    touchSensitivity: 1,
+    keyboardScrolling: true,
+    sectionSelector: screen,
+    animateAnchor: false,
+
+    //events
+    onLeave: function (index, nextIndex, direction) {
+      //fading out the txt of the leaving section
+      // $('.section').eq(index - 1).fadeOut(400, 'linear');
+
+      //fading in the text of the destination (in case it was fadedOut)
+      // $('.section').eq(nextIndex - 1).fadeIn(1000, 'linear');
+      // $('.section').eq(nextIndex - 1).find('.js-show-on-scroll').addClass();
+
+
+      //reaching our last section? The one with our normal site?
+      if (nextIndex >= 3 && nextIndex <= 8) {
+        $('.ellipse').fadeOut();
+
+        //fading out navigation bullets
+        // $('#pp-nav').fadeOut();
+
+      } else {
+        $('.ellipse').fadeIn();
+      }
+      //leaving our last section? The one with our normal site?
+      if (index == 4) {
+        $('#arrow').show();
+
+        //fadding in navigation bullets
+        $('#pp-nav').fadeIn();
+
+      }
+    },
+    afterLoad: function (anchorLink, index) {},
+    afterRender: function () {},
+  });
+});
+
+
 
 
 
