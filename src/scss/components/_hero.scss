@@ -39,6 +39,7 @@
     transform: scale(1);
     transition: transform 4s ease-out;
     z-index: 1;
+
     &.js-active {
       transform: scale(1.2);
     }

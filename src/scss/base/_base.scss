@@ -79,12 +79,16 @@ h3 {
 
 h4 {
   font-size: 42px;
-  line-height: 1.12em;
+  line-height: 1.33em;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin: 26px 0;
 }
 
 h5 {
-  font-size: 18px;
-  letter-spacing: 0.075em;
+  font-size: 30px;
+  line-height: 1em;
+  text-transform: uppercase;
 }
 
 h6 {
@@ -179,7 +183,9 @@ ol {
     opacity: 1;
 
     .js-move-top,
-    .js-move-down {
+    .js-move-down,
+    .js-move-right,
+    .js-move-left {
       transform: translate(0, 0);
       opacity: 1;
     }
@@ -205,15 +211,54 @@ ol {
       transform: rotate(-15deg);
     }
 
-    // .section__title,
-    // .section__text {
-    //   transform: translate(0, 0);
-    //   opacity: 1;
-    // }
-
-    .equalizer {
+    .equalizer,
+    .music-waves,
+    .subscription-waves {
       transform: translate(0, 0);
       opacity: 1;
+    }
+
+    .social-waves {
+      transform: translate(0, 0);
+      opacity: 1;
+      animation: opacityWaves 10s linear infinite;
+    }
+
+    .share-list__item {
+      animation: showSocial 1.2s linear forwards;
+
+      &._1 {
+        animation-delay: .3s;
+      }
+
+      &._2 {
+        animation-delay: .7s;
+      }
+
+      &._3 {
+        animation-delay: .5s;
+      }
+
+      &._4 {
+        animation-delay: .3s;
+      }
+
+      &._5 {
+        animation-delay: .3s;
+      }
+
+      &._6 {
+        animation-delay: .7s;
+      }
+
+      &._9 {
+        animation-delay: .5s;
+
+      }
+
+      &._10 {
+        animation-delay: .5s;
+      }
     }
   }
 
@@ -387,7 +432,7 @@ textarea {
 
 .main-wrapper {
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   height: 100vh;
   background-color: $black;
   opacity: 1;

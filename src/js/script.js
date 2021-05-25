@@ -173,7 +173,7 @@ function preloader() {
   logo.addClass('animate');
 
   setTimeout(function () {
-    heroBg.addClass('js-active');
+    heroBg.removeClass('js-active');
   }, 2000);
 
   setTimeout(function () {
@@ -212,7 +212,7 @@ for (let i = 0; i <= pointsLenght; i++) {
 }
 $(document).ready(function () {
 
-  console.log('DOM полностью загружен и разобран');
+  console.log('DOM завантажено');
   preloader();
 
   burger.on('click', function () {
@@ -222,30 +222,30 @@ $(document).ready(function () {
 
 
 
-  // $(window).bind('mousewheel', function () {
-  let activeFeatures = $('.js-page').children('.features').index() - 3;
-  console.log(activeFeatures);
-  // let activeFeatures = featuresSections.index();
-  // $('.js-page').children('.features.active').index();
-  // console.log();
-
-  // console.log(activeFeatures);
-  // console.log(paginationItem);
-  // console.log(activeFeatures);
-  // $('.pagination__item').removeClass('.active');
-  // paginationItem.eq(activeFeatures).addClass('active');
-  $(".pagination__list").each(function () {
-    console.log($(this).children());
-    $(this).children().each(function () {
-      $('.pagination__item').eq(activeFeatures).addClass('active');
-    });
-    // $(this).toggleClass("example");
-    // $(".pagination__list").each(function () {
-    //   $('.pagination__item').eq(activeFeatures).addClass('active');
-    // });
+  $(window).bind('mousewheel', function () {
+    let activeFeatures = $('.features.active');
+    let activeFeaturesIndex = $('.features.active').index() - 3;
+    $(".pagination__item").removeClass('.active');
+    activeFeatures.find('.pagination__item').eq(activeFeaturesIndex).addClass('active');
 
   });
-  // });
+
+
+  // function countdown() {
+  //   let count = 0;
+  //   let timerId = setInterval(function () {
+  //     count++;
+  //     console.log(count);
+
+  //     if (count == 9) {
+  //       count = 0;
+  //     }
+  //   }, 1000);
+  // }
+
+  // countdown();
+  // console.log(countdown);
+
   // $('.pagination__item').eq(activeFeatures).addClass('active');
 
   $('.js-page').pagepiling({
@@ -257,7 +257,7 @@ $(document).ready(function () {
     scrollingSpeed: 0,
     easing: 'linear',
     loopBottom: true,
-    loopTop: false,
+    loopTop: true,
     css3: true,
     // navigation: {
     //   'textColor': '#fff',
@@ -305,15 +305,6 @@ $(document).ready(function () {
     afterRender: function () {},
   });
 });
-
-
-
-
-
-
-
-
-
 
 
 // detect webp support

@@ -1,0 +1,97 @@
+.share {
+  padding-top: 12%;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/home/share-bg.png);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .2;
+  }
+
+  &__title {
+    text-align: center;
+
+    p {
+      max-width: 340px;
+      margin: 0 auto;
+    }
+  }
+
+  &-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &__item {
+      position: relative;
+      transform-origin: center;
+      position: absolute;
+      opacity: 0;
+
+      &._1 {
+        top: 28%;
+        left: 22%;
+      }
+
+      &._2 {
+        top: 21%;
+        right: 21%;
+      }
+
+      &._3 {
+        top: 33%;
+        left: 11%;
+      }
+
+      &._4 {
+        top: 32%;
+        right: 11%;
+      }
+
+      &._5 {
+        top: 48%;
+        left: 23%;
+      }
+
+      &._6 {
+        top: 46%;
+        right: 15%;
+      }
+
+      &._7 {
+        top: 56%;
+        left: 9%;
+      }
+
+      &._8 {
+        top: 51%;
+        right: 25%;
+      }
+
+      &._9 {
+        top: 64%;
+        left: 17%;
+      }
+
+      &._10 {
+        top: 66%;
+        right: 11%;
+      }
+    }
+
+    &__link {
+      background-image: linear-gradient(104.43deg, rgba(255, 255, 255, 0.15) 6.09%, rgba(255, 255, 255, 0.05) 75.06%);
+      border-radius: 10px;
+      padding: 8px;
+    }
+  }
+}

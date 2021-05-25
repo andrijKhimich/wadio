@@ -11,5 +11,8 @@
     background-position: right bottom;
     background-size: contain;
     filter: url("#turbulence");
+    transform: translate(0, 50px);
+    opacity: 0;
+    transition: transform 3s $timing, opacity 3s $timing;
   }
 }
