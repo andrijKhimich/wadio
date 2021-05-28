@@ -1,19 +1,20 @@
 .share {
   padding-top: 12%;
 
-  &::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-image: url(../img/home/share-bg.png);
-    background-size: cover;
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: .2;
-  }
+  // &::before {
+  //   content: "";
+  //   width: 100%;
+  //   height: 100%;
+  //   background-image: url(../img/home/share-bg.png);
+  //   background-size: cover;
+  //   background-position: bottom center;
+  //   background-repeat: no-repeat;
+  //   position: absolute;
+  //   // top: 0;
+  //   bottom: -155px;
+  //   left: 0;
+  //   opacity: .2;
+  // }
 
   &__title {
     text-align: center;

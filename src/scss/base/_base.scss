@@ -1,6 +1,7 @@
 // project main styles
 html {
   box-sizing: border-box;
+  // scroll-behavior: smooth;
 }
 
 body {
@@ -25,8 +26,8 @@ body {
   //style default scrollbar
   &::-webkit-scrollbar {
     width: 6px;
-    background-color: $textColor;
-    display: none;
+    background-color: $black;
+    // display: none;
   }
 
   &::-webkit-scrollbar-track {
@@ -35,8 +36,8 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $primary;
-    outline: 1px solid $primary;
+    background-color: $primary-blue;
+    outline: 1px solid $primary-blue;
     transition: background-color 0.4s ease;
   }
 }
@@ -92,8 +93,8 @@ h5 {
 }
 
 h6 {
-  font-size: 18px;
-  letter-spacing: 0.075em;
+  font-size: 13px;
+  margin-bottom: 10px;
 }
 
 .title-1 {
@@ -175,12 +176,18 @@ ol {
 .section {
   height: 100vh;
   box-sizing: border-box;
-  overflow: hidden;
-  opacity: 0;
-  transition: opacity 1s linear;
+  // overflow: hidden;
+  position: relative;
+  // background-image: url(../img/home/inner-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2;
+  // opacity: 0;
+  // transition: opacity 1s linear;
 
   &.active {
-    opacity: 1;
+    // opacity: 1;
 
     .js-move-top,
     .js-move-down,
@@ -201,15 +208,17 @@ ol {
 
     .section__img {
       transform: scale(1) rotate(0deg);
+      opacity: 1;
     }
 
-    .features__media {
-      pointer-events: initial;
-    }
+    // .features__media {
+    //   pointer-events: initial;
+    //   opacity: 1;
+    // }
 
-    .features__media_2 {
-      transform: rotate(-15deg);
-    }
+    // .features__media_2 {
+    //   transform: rotate(-15deg);
+    // }
 
     .equalizer,
     .music-waves,
@@ -264,12 +273,16 @@ ol {
 
   &__row {
     display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 3;
   }
 
 
   &__img {
     transform: scale(1.1) rotate(10deg);
-    transition: transform 1s linear;
+    opacity: 0;
+    transition: transform 1s linear, opacity .6s $timing;
   }
 
   &__content,
@@ -301,6 +314,11 @@ ol {
   &_inner {
     // padding-top: 205px;
     padding-top: 14%;
+    // background-image: url(../img/home/inner-bg.png);
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-color: $black;
   }
 
   &-list {
@@ -430,23 +448,34 @@ textarea {
   height: 100%;
 }
 
+.main {
+  position: relative;
+  z-index: 2;
+}
+
 .main-wrapper {
   position: relative;
-  // overflow: hidden;
-  height: 100vh;
+  overflow: hidden;
+  // height: 100vh;
   background-color: $black;
   opacity: 1;
   transition: opacity $duration $timing;
+  // background-image: url(../img/home/inner-bg.png);
+  // background-size: contain;
+  // background-repeat: repeat;
+  // background-position: center;
+  // background-color: $black;
 }
 
-.pp-tableCell {
-  vertical-align: baseline;
-}
+// .pp-tableCell {
+//   vertical-align: baseline;
+// }
 
 .container {
   padding: 0 15px;
   margin: 0 auto;
   max-width: 80vw;
+  width: 100%;
 
   @include d(1500) {
     max-width: 1200px;
@@ -455,18 +484,18 @@ textarea {
 
 .scene,
 canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // bottom: 0;
+  // right: 0;
+  // width: 100%;
+  // height: 100%;
+  // z-index: 1;
 }
 
 .btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   position: relative;
   border: 2px;
@@ -499,13 +528,13 @@ canvas {
 
     .btn__box {
       padding: 10px 23px 10px 25px;
-
     }
   }
 
   &__box {
     position: relative;
     padding: 14px 23px 14px 25px;
+    color: $white;
 
     &::before {
       content: "";
@@ -523,6 +552,8 @@ canvas {
     font-size: 9px;
     font-weight: 700;
   }
+
+  &_varified {}
 
   .svg-icon {
     padding: 15px;
@@ -548,9 +579,17 @@ canvas {
 }
 
 .svg-icon {
-  fill: $textColor;
+  // fill: $textColor;
+  fill: $white;
   width: 19px;
   height: 19px;
+}
+
+.social-icon {
+  width: 16px;
+  height: 16px;
+  fill: $white;
+  transition: fill .4s $timing;
 }
 
 .waves {
@@ -615,7 +654,6 @@ canvas {
   color: $textColor;
 }
 
-
 .decor-text {
   font-size: 360px;
   font-weight: 700;
@@ -668,3 +706,17 @@ canvas {
     // opacity: 1;
   }
 }
+
+.lock {
+  // height: 3500px;
+  // padding: 0;
+}
+
+
+// #loader {
+//   width: 100vw;
+//   height: 100vh;
+//   canvas {
+//     height: 100% !important;
+//   }
+// }

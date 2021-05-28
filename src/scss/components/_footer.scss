@@ -1,1 +1,145 @@
 // footer styles
+.footer {
+  padding-top: 155px;
+  // background-color: $black;
+  z-index: 1;
+  transform: translate(0, 20px);
+  opacity: 0;
+  transition: transform 1s $timing, opacity 1s $timing;
+  &.active {
+    opacity: 1;
+    transform: translate(0,0);
+  }
+  &-video {
+    position: absolute;
+    // top: -50%;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 130vh;
+    // z-index: 3;
+    video {
+      width: 100%;
+    }
+  }
+
+  .subscription-waves {
+    bottom: 20%;
+  }
+
+  &-banner {
+    background: linear-gradient(157.71deg, rgba(93, 142, 255, 0.5) -8.37%, rgba(0, 228, 130, 0.5) 117.63%);
+    backdrop-filter: blur(11px);
+    border-radius: 15px;
+    padding: 60px 70px 92px 70px;
+    z-index: 1;
+  }
+
+  &__content {
+    color: $white;
+    // max-width: 50%;
+    flex: 0 0 50%;
+
+    p {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__media {
+    position: relative;
+    max-width: 480px;
+    width: 100%;
+  }
+
+  &__img {
+    position: absolute;
+
+    &_1 {
+      top: -20px;
+      right: 25px;
+      max-width: 362px;
+    }
+
+    &_2 {
+      bottom: 40px;
+      right: 150px;
+      max-width: 330px;
+    }
+
+    &_3 {
+      bottom: -50px;
+      right: -20px;
+      max-width: 396px;
+    }
+  }
+
+  &-logo {
+    max-width: 115px;
+    margin-bottom: 30px;
+  }
+
+  &__details {
+    padding-top: 70px;
+    margin: 0 -15px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    // background-color: $black;
+  }
+
+  &__copyright {
+    max-width: 340px;
+    font-size: 12px;
+    padding: 0 15px;
+
+    p {
+      margin-bottom: 50px;
+      line-height: 1.333em;
+    }
+  }
+
+  &__box {
+    padding: 0 15px;
+    font-size: 13px;
+
+    .title-6,
+    h6 {
+      text-transform: uppercase;
+    }
+
+    &:last-child {
+      margin-right: 70px;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 20px;
+
+    li {
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+
+  li {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  a {
+    &:hover {
+      .social-icon {
+        fill: $primary-green;
+      }
+    }
+  }
+}

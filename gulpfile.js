@@ -91,8 +91,9 @@ gulp.task("js", function () {
       // "src/libs/three.js/build/three.min.js",
       // "src/libs/dat.gui/build/dat.gui.min.js",
       // "src/libs/three.js/examples/js/loaders/GLTFLoader.js",
-      "src/libs/pagePiling.js/dist/jquery.pagepiling.js",
-
+      // "src/libs/pagePiling.js/dist/jquery.pagepiling.js",
+      "src/libs/sticky-kit.min.js",
+      "src/libs/lottie.js",
       "src/js/script.js",
     ])
     .pipe(sourcemaps.init())

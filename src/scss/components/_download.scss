@@ -1,4 +1,44 @@
 .download {
   // position: relative;
   z-index: 1;
+
+  &__media {
+    // max-width: 840px;
+    min-height: 100%;
+    max-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: -14%;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__iphone,
+  &__phone {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__iphone {
+    z-index: 1;
+    // max-width: 640px;
+    left: 0;
+    right: auto;
+    top: 10%;
+  }
+
+  &__phone {
+    // max-width: 840px;
+    right: -12%;
+    top: -5%;
+    transition-delay: .4s;
+  }
 }

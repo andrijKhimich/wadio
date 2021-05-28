@@ -1,9 +1,10 @@
 .features {
   // position: relative;
-  z-index: 1;
+  // z-index: 1;
 
   &__img {
     position: relative;
+    height: 100%;
 
     @include rh(1024) {
       &:hover {
@@ -12,7 +13,8 @@
         }
 
         .features__media_1 {
-          transform: rotate(15deg);
+          transform: rotate(15deg) translate(0, -50%);
+
         }
       }
     }
@@ -34,10 +36,13 @@
     width: 100%;
     max-width: 261px;
     // max-width: 18vw;
-    top: -20px;
+    // top: -20px;
+    top: 55%;
+    transform: translate(0, -50%);
     right: 135px;
-    transition: transform 1s $timing;
     pointer-events: none;
+    opacity: 0;
+    transition: transform 1s $timing, opacity $timing 1s;
 
     &_1 {
       transform-origin: right bottom;
@@ -46,7 +51,7 @@
     &_2 {
       // right: 185px;
       right: 13vw;
-      top: 60px;
+      top: 20%;
       transform-origin: left bottom;
       transform: rotate(-5deg);
       z-index: -1;
@@ -113,4 +118,67 @@
   100% {
     stroke-dashoffset: 0;
   }
+}
+
+.slide__item {
+  position: fixed;
+  z-index: 1;
+  // visibility: hidden;
+  width: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: .4s;
+  // height: 100vh;
+  height: 100%;
+  align-items: center;
+  // padding-top: 14%;
+}
+
+// .slide-item.slide-item__1:not(.show) {
+//   position: fixed;
+// }
+
+.section__slider__sticky {
+  // height: 100%;
+}
+
+.section__slider {
+  height: 700vh;
+
+  .container {
+    height: 100%;
+  }
+}
+
+.slide__item.show {
+  // visibility: visible;
+  opacity: 1;
+  pointer-events: initial;
+  position: fixed;
+
+  .features__media {
+    pointer-events: initial;
+    opacity: 1;
+  }
+
+  .features__media_2 {
+    transform: rotate(-15deg);
+  }
+
+  .section__img {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  .js-move-top,
+  .js-move-down,
+  .js-move-right,
+  .js-move-left {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
 }
