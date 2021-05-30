@@ -668,16 +668,19 @@ canvas {
   &_varified {}
 
   .svg-icon {
-    padding: 15px;
+    margin: 15px;
   }
 
   img,
   picture {
     width: 16px;
+    // padding: 15px;
+    flex: 0 0 16px;
+    // box-sizing: border-box;
   }
 
   picture {
-    padding: 15px;
+    margin: 15px;
   }
 }
 

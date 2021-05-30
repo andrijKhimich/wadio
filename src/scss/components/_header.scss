@@ -11,6 +11,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+
+    @include d(575) {
+      flex-wrap: wrap;
+    }
   }
 
   &__btn {
@@ -26,6 +31,12 @@
     position: relative;
     margin-right: 0;
     margin-left: auto;
+
+    @include d(575) {
+      flex: 0 0 100%;
+      order: 2;
+      margin-top: 60px;
+    }
   }
 
   &__link {
@@ -128,7 +139,11 @@
   pointer-events: initial;
   transition: all $hover-duration $timing;
   z-index: 11;
+  @include d(575) {
+    position: absolute;
+    right: 0;
 
+  }
   &.open {
     opacity: 1;
     border: 3px solid $titleColor;

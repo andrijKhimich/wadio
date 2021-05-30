@@ -97,9 +97,10 @@
 // logo animation
 .logo {
   max-width: 151px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  position: absolute;
+  // height: 100vh;
+  top: 50vh;
+  left: 50vw;
   opacity: 0;
 
   &.animate {
@@ -164,7 +165,7 @@
 
   0% {
     transform: translate(-50%, -50%) scale(0) rotate(0);
-    top: 50%;
+    top: 50vh;
     left: 50%;
     opacity: 0;
   }
@@ -172,62 +173,62 @@
   10% {
     transform: translate(-50%, -50%) scale(0) rotate(0);
     opacity: 1;
-    top: 50%;
+    top: 50vh;
     left: 50%;
   }
 
   20% {
     transform: translate(-50%, -50%) scale(1.2) rotate(0);
     opacity: 1;
-    top: 50%;
+    top: 50vh;
     left: 50%;
   }
 
   30% {
     transform: translate(-50%, -50%) scale(2.4) rotate(-25deg);
     opacity: 1;
-    top: 50%;
+    top: 50vh;
     left: 50%;
   }
 
   40% {
     transform: translate(-50%, -50%) scale(2) rotate(-12.5deg);
     opacity: 1;
-    top: 50%;
+    top: 50vh;
     left: 50%;
   }
 
   50% {
     transform: translate(-50%, -50%) scale(2) rotate(0);
-    top: 50%;
+    top: 50vh;
     left: 50%;
     opacity: 1;
   }
 
   60% {
     transform: translate(-50%, -50%) scale(2) rotate(0);
-    top: 50%;
+    top: 50vh;
     left: 50%;
     opacity: 1;
   }
 
   70% {
     transform: translate(-50%, -50%) scale(2) rotate(0);
-    top: 50%;
+    top: 50vh;
     left: 50%;
     opacity: 1;
   }
 
   80% {
     transform: translate(-50%, -50%) scale(2) rotate(0);
-    top: 50%;
+    top: 50vh;
     left: 50%;
     opacity: 1;
   }
 
   90% {
     transform: translate(0, 0) scale(1.5) rotate(0);
-    top: 25%;
+    top: 25vh;
     left: 25%;
     opacity: 1;
   }
@@ -236,7 +237,7 @@
     opacity: 1;
     top: 0;
     left: 0;
-    transform: translate(80%, 80%) scale(1) rotate(0);
+    transform: translate(0%, 0%) scale(1) rotate(0);
   }
 }
 
