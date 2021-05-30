@@ -1,4 +1,8 @@
 // project main styles
+* {
+  box-sizing: border-box;
+}
+
 html {
   box-sizing: border-box;
   // scroll-behavior: smooth;
@@ -64,6 +68,23 @@ h2 {
   @include d(1440) {
     font-size: 70px;
   }
+
+  @include d(1299) {
+    font-size: 60px;
+  }
+
+  @include d(991) {
+    font-size: 50px;
+    margin: 10px 0;
+  }
+
+  @include d(768) {
+    font-size: 40px;
+  }
+
+  @include d(575) {
+    font-size: 30px;
+  }
 }
 
 h3 {
@@ -76,6 +97,23 @@ h3 {
   @include d(1440) {
     font-size: 58px;
   }
+
+  @include d(1299) {
+    font-size: 50px;
+  }
+
+  @include d(991) {
+    font-size: 40px;
+    margin: 10px 0;
+  }
+
+  @include d(768) {
+    font-size: 30px;
+  }
+
+  @include d(575) {
+    font-size: 20px;
+  }
 }
 
 h4 {
@@ -84,12 +122,44 @@ h4 {
   letter-spacing: .06em;
   text-transform: uppercase;
   margin: 26px 0;
+
+  @include d(1440) {
+    font-size: 32px;
+  }
+
+  @include d(1299) {
+    font-size: 28px;
+  }
+
+  @include d(991) {
+    font-size: 24px;
+  }
+
+  @include d(768) {
+    font-size: 22px;
+  }
+
+  @include d(575) {
+    font-size: 18px;
+  }
 }
 
 h5 {
   font-size: 30px;
   line-height: 1em;
   text-transform: uppercase;
+
+  @include d(1440) {
+    font-size: 22px;
+  }
+
+  @include d(1299) {
+    font-size: 18px;
+  }
+
+  @include d(991) {
+    font-size: 16px;
+  }
 }
 
 h6 {
@@ -174,17 +244,23 @@ ol {
 }
 
 .section {
-  height: 100vh;
-  box-sizing: border-box;
-  // overflow: hidden;
   position: relative;
-  // background-image: url(../img/home/inner-bg.png);
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  z-index: 2;
-  // opacity: 0;
-  // transition: opacity 1s linear;
+  // z-index: 2;
+
+  &-video {
+    // transform: translate(0, -20px);
+    // opacity: 0;
+    // z-index: -1;
+    transform: translate(0, 50px);
+    opacity: 0;
+    transition: transform 3s $timing, opacity 3s $timing;
+  }
 
   &.active {
     // opacity: 1;
@@ -222,7 +298,8 @@ ol {
 
     .equalizer,
     .music-waves,
-    .subscription-waves {
+    .subscription-waves,
+    .section-video {
       transform: translate(0, 0);
       opacity: 1;
     }
@@ -274,8 +351,13 @@ ol {
   &__row {
     display: flex;
     justify-content: space-between;
+    // align-items: center;
     position: relative;
     z-index: 3;
+
+    @include d(768) {
+      flex-direction: column;
+    }
   }
 
 
@@ -286,14 +368,23 @@ ol {
   }
 
   &__content,
-  .section__img {
+  & .section__img {
     width: 100%;
     max-width: 50%;
     position: relative;
+    padding: 0 15px;
+
+    @include d(768) {
+      max-width: 100%;
+    }
 
     // z-index: 10;
     &_right {
       margin-left: 173px;
+
+      @include d(991) {
+        margin-left: 0;
+      }
     }
   }
 
@@ -309,20 +400,36 @@ ol {
     transform: translate(0, 20px);
     opacity: 0;
     transition: transform $duration $timing, opacity $duration $timing;
+
+    @include d(991) {
+      margin: 10px 0;
+    }
+
+    @include d(768) {
+      max-width: 100%;
+    }
   }
 
   &_inner {
     // padding-top: 205px;
     padding-top: 14%;
+
     // background-image: url(../img/home/inner-bg.png);
     // background-size: cover;
     // background-repeat: no-repeat;
     // background-position: center;
     // background-color: $black;
+    @include d(768) {
+      padding-top: 10%;
+    }
   }
 
   &-list {
     margin-top: 50px;
+
+    @include d(991) {
+      margin-top: 20px;
+    }
 
     &__item {
       position: relative;
@@ -474,11 +581,16 @@ textarea {
 .container {
   padding: 0 15px;
   margin: 0 auto;
-  max-width: 80vw;
+  max-width: 82vw;
   width: 100%;
+  box-sizing: border-box;
 
-  @include d(1500) {
-    max-width: 1200px;
+  @include d(1199) {
+    max-width: 90%;
+  }
+
+  @include d(991) {
+    max-width: 100%;
   }
 }
 
@@ -571,10 +683,15 @@ canvas {
 
 .btn-group {
   display: flex;
-  margin: 50px 0;
+  margin: 50px 0 30px 0;
+  flex-wrap: wrap;
 
+  // @include d(575) {
+  //   flex-direction: column-reverse;
+  // }
   .btn:not(:last-child) {
     margin-right: 34px;
+    margin-bottom: 20px;
   }
 }
 
@@ -583,11 +700,13 @@ canvas {
   fill: $white;
   width: 19px;
   height: 19px;
+  flex: 0 0 19px;
 }
 
 .social-icon {
   width: 16px;
   height: 16px;
+  flex: 0 0 16px;
   fill: $white;
   transition: fill .4s $timing;
 }

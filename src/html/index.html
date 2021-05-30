@@ -10,16 +10,14 @@
   <div class="main-wrapper">
     @@include('components/_header.html')
     <div class="scene"></div>
-    <svg class="preload-logo" viewBox="0 0 596 596" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path class="line1"
-        d="M150 114.679C202.833 101.513 322.8 98.8794 380 193.679C451.5 312.179 359 415.68 260.5 399.68C162 383.68 152.5 193.68 284 217.18C308.5 221.558 330.7 253.88 299.5 296.68"
-        stroke="#68E08B" stroke-width="9" stroke-linecap="round" />
-      <path class="line2"
-        d="M446.346 480.64C393.513 493.807 273.546 496.44 216.346 401.64C144.846 283.14 237.346 179.64 335.846 195.64C434.346 211.64 443.846 401.64 312.346 378.14C287.846 373.761 265.646 341.44 296.846 298.64"
-        stroke="#678FF7" stroke-width="9" stroke-linecap="round" />
-    </svg>
     <!-- <div id="loader"></div> -->
     <main class="main">
+      <div class="hero-bg js-hero-bg js-active" style="background-image: url(img/home/galaxy.png);">
+        <div class="ellipse ellipse_1" style="background-image: url(img/home/ellipse1.png);"></div>
+        <div class="ellipse ellipse_2" style="background-image: url(img/home/ellipse2.png);"></div>
+        <div class="ellipse ellipse_3" style="background-image: url(img/home/ellipse3.png);"></div>
+        <div class="ellipse ellipse_4" style="background-image: url(img/home/ellipse4.png);"></div>
+      </div>
       <section class="section active js-screen hero">
         <div class="container">
           <div class="section__row">
@@ -57,7 +55,7 @@
             </div>
           </div>
         </div>
-        <div class="waves js-show-on-load js-slide-top">
+        <!-- <div class="waves js-show-on-load js-slide-top">
           <svg>
             <filter id="turbulence" x="0" y="0" width="100%" height="100%">
               <feTurbulence id="sea-filter" numOctaves="1" seed="0" baseFrequency="1 1"></feTurbulence>
@@ -66,6 +64,12 @@
                 values="0.0 0.0;0.00 0.02;0.01 0.0" repeatCount="indefinite" />
             </filter>
           </svg>
+        </div> -->
+        <div class="hero-video js-show-on-load js-slide-top">
+          <video autoplay="autoplay" loop="loop" muted>
+            <source src="video/wave-hero.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <!-- Тег video не поддерживается вашим браузером. -->
+          </video>
         </div>
         <a href="#" class="scroll-down js-slide-top"></a>
       </section>
@@ -111,6 +115,12 @@
             </div>
           </div>
         </div>
+        <div class="hero-video section-video">
+          <video autoplay="autoplay" loop="loop" muted>
+            <source src="video/wave-equalizer.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <!-- Тег video не поддерживается вашим браузером. -->
+          </video>
+        </div>
         <!-- <div class="equalizer"> -->
         <!-- <svg>
             <filter id="turbulence" x="0" y="0" width="100%" height="100%">
@@ -122,7 +132,7 @@
           </svg> -->
         <!-- </div> -->
       </section>
-      <section class="section section__slider" data-lock-section>
+      <section class="section section__slider js-screen" data-lock-section>
         <div class="section__slider__sticky">
           <!-- <div class="features"> -->
           <!-- <img src="img/home/features-ellipse.png" alt="ellipse" class="features__shine"> -->
@@ -331,7 +341,7 @@
                 </div>
               </div>
             </div>
-            <div class="section__row slide__item slide__item_7" data-slide="7">
+            <!-- <div class="section__row slide__item slide__item_7" data-slide="7">
               <div class="section__img features__img">
                 <div class="features__media features__media_1">
                   <img src="img/home/messaging1.png" alt="radio">
@@ -361,13 +371,20 @@
                   </svg>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <!-- </div> -->
         </div>
       </section>
       <section class="section js-screen section_inner music">
-        <div class="music-waves"></div>
+        <!-- <div class="music-waves"></div>
+         -->
+        <div class="hero-video section-video">
+          <video autoplay="autoplay" loop="loop" muted>
+            <source src="video/wave-music.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <!-- Тег video не поддерживается вашим браузером. -->
+          </video>
+        </div>
         <div class="container">
           <div class="section__row">
             <div class="section__content">
@@ -451,7 +468,13 @@
         </div>
       </section>
       <section class="section js-screen section_inner subscription">
-        <div class="subscription-waves"></div>
+        <!-- <div class="subscription-waves"></div> -->
+        <div class="hero-video section-video">
+          <video autoplay="autoplay" loop="loop" muted>
+            <source src="video/wave-music.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <!-- Тег video не поддерживается вашим браузером. -->
+          </video>
+        </div>
         <div class="container">
           <div class="subscription__content">
             <div class="section__title subscription__title js-show-on-scroll js-move-down">
@@ -576,7 +599,6 @@
         </div>
       </section>
       <footer class="section footer js-screen">
-
         <div class="container">
           <div class="footer-banner">
             <div class="section__row">
@@ -600,11 +622,10 @@
                 <img src="img/home/footer-card3.png" alt="card" class="footer__img footer__img_3">
               </div>
             </div>
-
           </div>
           <div class="footer__details">
             <div class="footer__copyright">
-              <a href="/" class="footer-logo">
+              <a href="#" class="footer-logo">
                 <img src="img/home/logo.svg" alt="wadio">
               </a>
               <p>Our mission is to encourage the growth and discovery of world music by bringing regional radio and
@@ -682,15 +703,9 @@
         </div>
       </footer>
     </main>
-    <div class="hero-bg js-hero-bg js-active" style="background-image: url(img/home/galaxy.png);">
-      <div class="ellipse ellipse_1" style="background-image: url(img/home/ellipse1.png);"></div>
-      <div class="ellipse ellipse_2" style="background-image: url(img/home/ellipse2.png);"></div>
-      <div class="ellipse ellipse_3" style="background-image: url(img/home/ellipse3.png);"></div>
-      <div class="ellipse ellipse_4" style="background-image: url(img/home/ellipse4.png);"></div>
-    </div>
     <div class="footer-video">
-      <video src="video/earth.mp4" autoplay loop>
-        <!-- <source > -->
+      <video autoplay loop muted>
+        <source src="video/earth.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
       </video>
     </div>
   </div>

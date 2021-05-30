@@ -55,9 +55,24 @@
   transform: translate(20px, 0);
   transition: transform $hover-duration $timing, opacity $hover-duration $timing;
 
+  @include d(991) {
+    width: 70vw;
+    font-size: 22px;
+  }
+
+  @include d(768) {
+    font-size: 16px;
+    width: 100vw;
+    border-radius: 0;
+  }
+
   &-list {
     text-align: right;
     padding: 165px 120px 0 0;
+
+    @include d(991) {
+      padding: 80px;
+    }
 
     &__item,
     li {

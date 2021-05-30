@@ -18,6 +18,11 @@
     transition: transform 3s $timing, opacity 3s $timing;
   }
 
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+
   &__title {
     text-align: center;
 
@@ -34,6 +39,11 @@
     max-width: 1080px;
     margin: 55px auto;
     padding: 0 15px;
+
+    @include d(991) {
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 
   &-box {
@@ -41,11 +51,25 @@
 
     &:first-child,
     &:last-child {
-      min-width: 315px;
+      max-width: 315px;
       min-height: 330px;
       flex: 0 0 315px;
       padding: 67px;
       backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+
+      @include d(1299) {
+        padding: 40px;
+      }
+
+      @include d(991) {
+        max-width: 100%;
+        flex: 0 0 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding: 20px;
+      }
     }
 
     &:first-child {
@@ -67,10 +91,23 @@
 
       border-radius: 15px;
       min-width: 450px;
-      min-height: 450px;
+      max-height: 450px;
       padding: 50px 50px 20px 50px;
       text-align: center;
       z-index: 1;
+
+      @include d(1299) {
+        min-width: auto;
+        width: 350px;
+        height: auto;
+        padding: 30px 30px 20px 30px;
+      }
+
+      @include d(991) {
+        max-width: 500px;
+        width: 100%;
+        margin-bottom: 20px;
+      }
     }
 
     &__content {
@@ -91,6 +128,10 @@
 
       &:not(:last-child) {
         margin-bottom: 25px;
+
+        @include d(768) {
+          margin-bottom: 15px;
+        }
       }
     }
   }
@@ -142,20 +183,37 @@
   display: flex;
   justify-content: center;
 
+  @include d(1299) {
+    margin: 20px 0;
+  }
+
   &__currency {
     font-size: 40px;
     line-height: 0.8em;
+
+    @include d(1299) {
+      font-size: 30px;
+    }
   }
 
   &__total {
     font-size: 90px;
     font-weight: 800;
     margin: 0 20px;
+
+    @include d(1299) {
+      font-size: 80px;
+    }
   }
 
   &__period {
     font-size: 20px;
     line-height: 1.4em;
     align-self: flex-end;
+
+    @include d(1299) {
+      font-size: 18px;
+    }
   }
+
 }
