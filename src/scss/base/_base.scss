@@ -110,10 +110,6 @@ h3 {
   @include d(768) {
     font-size: 30px;
   }
-
-  @include d(575) {
-    font-size: 20px;
-  }
 }
 
 h4 {

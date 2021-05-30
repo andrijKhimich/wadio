@@ -103,8 +103,27 @@
   left: 50vw;
   opacity: 0;
 
+  @include d(768) {
+    opacity: 1;
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%) scale(1) rotate(0);
+  }
+
+  img {
+    display: none;
+
+    @include d(768) {
+      display: block;
+    }
+  }
+
   &.animate {
     animation: animiateLogo 4s linear normal forwards;
+
+    @include d(768) {
+      animation: none;
+    }
 
     .logo-svg {
       .logo-svg_bounce {
@@ -123,6 +142,9 @@
   position: relative;
   width: 151px;
 
+  @include d(768) {
+    display: none;
+  }
 
   &_letter {
     position: absolute;
