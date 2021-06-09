@@ -12,13 +12,17 @@
     <div class="scene"></div>
     <!-- <div id="loader"></div> -->
     <main class="main">
-      <div class="hero-bg js-hero-bg js-active" style="background-image: url(img/home/galaxy.png);">
-        <div class="ellipse ellipse_1" style="background-image: url(img/home/ellipse1.png);"></div>
+      <div class="hero-bg js-hero-bg js-active" style="background-image: url(img/home/galaxy2.png);">
+        <!-- <div class="ellipse ellipse_1" style="background-image: url(img/home/ellipse1.png);"></div>
         <div class="ellipse ellipse_2" style="background-image: url(img/home/ellipse2.png);"></div>
         <div class="ellipse ellipse_3" style="background-image: url(img/home/ellipse3.png);"></div>
-        <div class="ellipse ellipse_4" style="background-image: url(img/home/ellipse4.png);"></div>
+        <div class="ellipse ellipse_4" style="background-image: url(img/home/ellipse4.png);"></div> -->
       </div>
       <section class="section active js-screen hero">
+        <div class="ellipse ellipse_1"></div>
+        <div class="ellipse ellipse_2"></div>
+        <div class="ellipse ellipse_3"></div>
+        <div class="ellipse ellipse_4"></div>
         <div class="container">
           <div class="section__row">
             <div class="hero__content">
@@ -51,6 +55,8 @@
               </div>
             </div>
             <div class="hero__media">
+              <span class="hero__media_overlay _1"></span>
+              <span class="hero__media_overlay _2"></span>
               <div class="hero__iphone js-show-on-load js-slide-top" id="heroIphone"></div>
             </div>
           </div>
@@ -115,7 +121,7 @@
             </div>
           </div>
         </div>
-        <div class="hero-video section-video">
+        <div class="section-video">
           <video autoplay="autoplay" loop="loop" muted>
             <source src="video/wave-equalizer.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
             <!-- Тег video не поддерживается вашим браузером. -->
@@ -379,7 +385,7 @@
       <section class="section js-screen section_inner music">
         <!-- <div class="music-waves"></div>
          -->
-        <div class="hero-video section-video">
+        <div class="section-video">
           <video autoplay="autoplay" loop="loop" muted>
             <source src="video/wave-music.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
             <!-- Тег video не поддерживается вашим браузером. -->
@@ -469,7 +475,7 @@
       </section>
       <section class="section js-screen section_inner subscription">
         <!-- <div class="subscription-waves"></div> -->
-        <div class="hero-video section-video">
+        <div class="section-video">
           <video autoplay="autoplay" loop="loop" muted>
             <source src="video/wave-music.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
             <!-- Тег video не поддерживается вашим браузером. -->
