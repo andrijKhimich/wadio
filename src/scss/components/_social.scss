@@ -1,4 +1,10 @@
 .social {
+  .ellipse_1 {
+    top: -100px;
+  }
+  .ellipse_3 {
+    top: 30%;
+  }
   &-waves {
     position: absolute;
     left: 0;
@@ -14,7 +20,7 @@
     opacity: 0;
     transition: transform 3s $timing, opacity 3s $timing;
   }
-
+  
   &__img {
     position: relative;
   }
@@ -44,7 +50,7 @@
 
 @keyframes opacityWaves {
   0% {
-    opacity: .1;
+    opacity: .2;
   }
 
   50% {
@@ -52,6 +58,6 @@
   }
 
   100% {
-    opacity: .1;
+    opacity: .2;
   }
 }

@@ -268,29 +268,69 @@ function showSocialPhone() {
       path: "./json/social-phone.json"
     });
 }
-let lastScrollTop = 0;
-$(window).scroll(function () {
-  let curentScrollPosition = $(this).scrollTop();
-  if (curentScrollPosition > lastScrollTop) {
-    // console.log('down');
-  } else {
-    // console.log('up');
-    $('.js-screen').each(function () {
-      let elem = $(this);
-      elem.removeClass('active');
-      elem.find('.slide__item').removeClass('show');
-    });
-  }
-  lastScrollTop = curentScrollPosition;
-});
+// let lastScrollTop = 0;
+// $(window).scroll(function () {
+//   let curentScrollPosition = $(this).scrollTop();
+//   if (curentScrollPosition > lastScrollTop) {
+//     // console.log('down');
+//   }
+//   // else {
+//   //   console.log('up');
+//   //   $('.js-screen').each(function () {
+//   //     let elem = $(this);
+//   //     elem.removeClass('active');
+//   //     elem.find('.slide__item').removeClass('show');
+//   //   });
+//   // }
+//   lastScrollTop = curentScrollPosition;
+// });
 
-function showOnScroll(scrollValue) {
+// function showOnScroll(scrollValue) {
+//   $('.js-screen').each(function () {
+
+//     let elem = $(this);
+//     let sectionPos = elem.offset().top;
+//     let windowPos = $(window).scrollTop() + $(window).height() / 2.6;
+
+//     if (sectionPos < windowPos) {
+//       elem.addClass('active');
+//     }
+//     if ($('.download').hasClass('active')) {
+//       if (downloadFlag) {
+//         showDownloadIphone();
+//         showDownloadPhone();
+//         downloadFlag = false;
+//       }
+//     }
+//     if ($('.music').hasClass('active')) {
+//       if (musicFlag) {
+//         showMusicPhone();
+//         musicFlag = false;
+//       }
+//     }
+//     if ($('.social').hasClass('active')) {
+//       if (socialFlag) {
+//         showSocialPhone();
+//         socialFlag = false;
+//       }
+//     }
+//   });
+// }
+
+
+function showOnScroll() {
   $('.js-screen').each(function () {
-
+    let startPosition = 0;
+    let windowStartPosition = $(window).scrollTop();
     let elem = $(this);
     let sectionPos = elem.offset().top;
-    let windowPos = $(window).scrollTop() + $(window).height() / 2.6;
+    let windowPos = windowStartPosition + $(window).height() / 1.8;
+    if (windowStartPosition > startPosition) {
+      $('.header').addClass('scrolled');
+    } else {
+      $('.header').removeClass('scrolled');
 
+    }
     if (sectionPos < windowPos) {
       elem.addClass('active');
     }
@@ -417,86 +457,88 @@ $(document).ready(function () {
   //   $('.section__slider').find('.section__slider__sticky').removeClass('.section__slider__sticky');
   // }
 
-  if ($("[data-lock-section]").length > 0) {
-    const slider_section = $('[data-lock-section]');
-    const slider_section_top = slider_section.offset().top;
-    const slider_section_bottom = (slider_section_top + slider_section.height()); // minus offset
-    const slider_section_height = slider_section.outerHeight();
-    let slider_counter = 0;
-    let slide_delta = 0;
-    let slide_index = 1;
-    const body = $("body");
+  // if ($("[data-lock-section]").length > 0) {
+  //   const slider_section = $('[data-lock-section]');
+  //   const slider_section_top = slider_section.offset().top;
+  //   const slider_section_bottom = (slider_section_top + slider_section.height()); // minus offset
+  //   const slider_section_height = slider_section.outerHeight();
+  //   let slider_counter = 0;
+  //   let slide_delta = 0;
+  //   let slide_index = 1;
+  //   const body = $("body");
 
-    $(window).scroll(function () {
-      // let s = window.scrollY;
-      $('.section__slider__sticky').stick_in_parent();
-      let s = window.pageYOffset;
+  //   $(window).scroll(function () {
+  //     // let s = window.scrollY;
+  //     $('.section__slider__sticky').stick_in_parent();
+  //     let s = window.pageYOffset;
 
-      // console.log(s);
-      if (s > slider_section_top && s < slider_section_bottom) {
+  //     // console.log(s);
+  //     if (s > slider_section_top && s < slider_section_bottom) {
 
-        let ss = s - slider_section_top; // window scroll - section offset() top;
-        let percent = (slider_section_height - slider_section_top) / 100;
+  //       let ss = s - slider_section_top; // window scroll - section offset() top;
+  //       let percent = (slider_section_height - slider_section_top) / 100;
 
-        let percentage = ss / percent;
-        if (percentage > 100) {
-          percentage = 100;
-        }
-        if (percentage <= 5) {
-          percentage = 1;
-        }
-        // console.log(percentage);
-        if (percentage < 16 && percentage > 5) {
-          // console.log('show element: 1');
-          $('.slide__item').removeClass('show');
-          $('[data-slide="1"]').addClass('show');
-        }
-        if (percentage < 33 && percentage > 16) {
-          // console.log('show element: 2');
-          $('.slide__item').removeClass('show');
-          $('[data-slide="2"]').addClass('show');
-        }
-        if (percentage < 49 && percentage > 33) {
-          // console.log('show element: 3');
-          $('.slide__item').removeClass('show');
-          $('[data-slide="3"]').addClass('show');
-        }
-        if (percentage < 66 && percentage > 49) {
-          // console.log('show element: 4');
-          $('.slide__item').removeClass('show');
-          $('[data-slide="4"]').addClass('show');
-        }
-        if (percentage < 83 && percentage > 66) {
-          // console.log('show element: 5');
-          $('.slide__item').removeClass('show');
-          $('[data-slide="5"]').addClass('show');
-        }
-        if (percentage > 83 && percentage < 100) {
-          // console.log('show element: 6');
-          $('.slide__item').removeClass('show');
-          $('[data-slide="6"]').addClass('show');
-        }
-        // if (percentage > 85 && percentage < 100) {
-        //   // console.log('show element: 7');
-        //   $('.slide__item').removeClass('show');
-        //   // $('.slide__item').css('show');
-        //   $('[data-slide="7"]').addClass('show');
-        // }
-        if (percentage >= 100) {
-          $('.slide__item').removeClass('show');
-          // console.log('100');
-        }
-        if (percentage <= 2) {
-          $('.slide__item').removeClass('show');
-          // console.log('0');
-        }
-      }
-      const scrollValue = $(this).scrollTop();
-      showOnScroll(scrollValue);
-      scrollValue >= 1 ? closeMenu() : null;
-    });
-  }
+  //       let percentage = ss / percent;
+  //       if (percentage > 100) {
+  //         percentage = 100;
+  //       }
+  //       if (percentage <= 5) {
+  //         percentage = 1;
+  //       }
+  //       // console.log(percentage);
+  //       if (percentage < 16 && percentage > 5) {
+  //         // console.log('show element: 1');
+  //         $('.slide__item').removeClass('show');
+  //         $('[data-slide="1"]').addClass('show');
+  //       }
+  //       if (percentage < 33 && percentage > 16) {
+  //         // console.log('show element: 2');
+  //         $('.slide__item').removeClass('show');
+  //         $('[data-slide="2"]').addClass('show');
+  //       }
+  //       if (percentage < 49 && percentage > 33) {
+  //         // console.log('show element: 3');
+  //         $('.slide__item').removeClass('show');
+  //         $('[data-slide="3"]').addClass('show');
+  //       }
+  //       if (percentage < 66 && percentage > 49) {
+  //         // console.log('show element: 4');
+  //         $('.slide__item').removeClass('show');
+  //         $('[data-slide="4"]').addClass('show');
+  //       }
+  //       if (percentage < 83 && percentage > 66) {
+  //         // console.log('show element: 5');
+  //         $('.slide__item').removeClass('show');
+  //         $('[data-slide="5"]').addClass('show');
+  //       }
+  //       if (percentage > 83 && percentage < 100) {
+  //         // console.log('show element: 6');
+  //         $('.slide__item').removeClass('show');
+  //         $('[data-slide="6"]').addClass('show');
+  //       }
+  //       // if (percentage > 85 && percentage < 100) {
+  //       //   // console.log('show element: 7');
+  //       //   $('.slide__item').removeClass('show');
+  //       //   // $('.slide__item').css('show');
+  //       //   $('[data-slide="7"]').addClass('show');
+  //       // }
+  //       if (percentage >= 100) {
+  //         $('.slide__item').removeClass('show');
+  //         // console.log('100');
+  //       }
+  //       if (percentage <= 2) {
+  //         $('.slide__item').removeClass('show');
+  //         // console.log('0');
+  //       }
+  //     }
 
+  //   });
+  // }
+  $(window).scroll(function () {
+    const scrollValue = $(this).scrollTop();
+    showOnScroll(scrollValue);
+    scrollValue >= 1 ? closeMenu() : null;
+  })
 
 });
 

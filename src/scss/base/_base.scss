@@ -264,17 +264,14 @@ ol {
 
     video {
       width: 100%;
-      // height: 100%;
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      // top: 0;
     }
   }
 
   &.active {
-    // opacity: 1;
 
     .js-move-top,
     .js-move-down,
@@ -298,15 +295,6 @@ ol {
       opacity: 1;
     }
 
-    // .features__media {
-    //   pointer-events: initial;
-    //   opacity: 1;
-    // }
-
-    // .features__media_2 {
-    //   transform: rotate(-15deg);
-    // }
-
     .equalizer,
     .music-waves,
     .subscription-waves,
@@ -319,6 +307,11 @@ ol {
       transform: translate(0, 0);
       opacity: 1;
       animation: opacityWaves 10s linear infinite;
+    }
+
+    .discover__img {
+      opacity: 1;
+      transform: translate(0, 0);
     }
 
     .share-list__item {
@@ -355,6 +348,50 @@ ol {
 
       &._10 {
         animation-delay: .5s;
+      }
+    }
+
+    .discover__pane_1 {
+      .discover__pane_hidden {
+        animation: showPane linear 4s 1.4s 1 forwards;
+      }
+    }
+
+    .discover__pane_2 {
+      .discover__pane_hidden {
+        // animation: showPane linear 4s 1.4s 1 forwards;
+        animation: showPane linear 4s 2s 1 forwards;
+
+      }
+    }
+
+    .discover__pane_3 {
+      .discover__pane_hidden {
+        animation: showPane linear 4s 1.4s 1 forwards;
+      }
+    }
+
+    .discover__pane_4 {
+      .discover__pane_hidden {
+        animation: showPane linear 4s 2s 1 forwards;
+      }
+    }
+
+    .discover__pane_5 {
+      .discover__pane_hidden {
+        animation: showPane linear 3s 2.6s 1 forwards;
+      }
+    }
+
+    .discover__pane_6 {
+      .discover__pane_hidden {
+        animation: showPane linear 4s 2.6s 1 forwards;
+      }
+    }
+
+    .discover__pane_7 {
+      .discover__pane_hidden {
+        animation: showPane linear 4s 2.2s 1 forwards;
       }
     }
   }
@@ -699,6 +736,8 @@ canvas {
   display: flex;
   margin: 50px 0 30px 0;
   flex-wrap: wrap;
+  // position: relative;
+  transition: transform 1s $timing;
 
   // @include d(575) {
   //   flex-direction: column-reverse;
@@ -744,9 +783,8 @@ canvas {
   position: absolute;
   opacity: .1;
   border-radius: 50%;
-  filter: blur(174px);
+  filter: blur(50px);
   z-index: 1;
-  background-color: $ellipseBg;
 
   &_1 {
     width: 77vw;
@@ -778,6 +816,31 @@ canvas {
     left: -24px;
     top: -215.31px;
     background-color: #0C8AFF;
+  }
+
+  &_5 {
+    width: 77vw;
+    height: 98vw;
+    left: -110px;
+    top: 0;
+    background-color: #4200FF;
+  }
+
+  &_6 {
+    width: 30vw;
+    height: 50vw;
+    left: -100px;
+    top: 30%;
+    background-color: #0C8AFF;
+  }
+
+  &_7 {
+    width: 70vw;
+    height: 35vw;
+    top: 30%;
+    left: 20%;
+    background-color: #0C8AFF;
+
   }
 }
 

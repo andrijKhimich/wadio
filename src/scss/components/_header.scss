@@ -6,6 +6,24 @@
   width: 100%;
   z-index: 100;
   padding: 31px 0;
+  transition: padding .6s $timing;
+
+  &.scrolled {
+    padding: 15px 0 10px 0;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 10%;
+      background: rgba(0, 0, 0, .1);
+      backdrop-filter: blur(6.5px);
+      -webkit-backdrop-filter: blur(6.5px);
+    }
+  }
 
   &-row {
     display: flex;
@@ -139,11 +157,13 @@
   pointer-events: initial;
   transition: all $hover-duration $timing;
   z-index: 11;
+
   @include d(575) {
     position: absolute;
     right: 0;
 
   }
+
   &.open {
     opacity: 1;
     border: 3px solid $titleColor;
