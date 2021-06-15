@@ -68,6 +68,19 @@
   }
 }
 
+.logo_animated {
+  opacity: 1;
+  top: 0;
+  left: 0;
+  transform: translate(0%, 0%) scale(1) rotate(0);
+  .logo-svg {
+    display: none;
+  }
+  img {
+    display: block;
+  }
+}
+
 .nav {
   position: fixed;
   top: 0;

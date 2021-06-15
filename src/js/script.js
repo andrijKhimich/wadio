@@ -173,8 +173,18 @@ const showOnLoadEl = $('.js-show-on-load');
 
 function preloader() {
 
-  logo.addClass('animate');
+  // logo.addClass('animate');
+  setTimeout(function () {
+    if ($('.header').hasClass('scrolled')) {
+      logo.addClass('logo_animated');
+    } else {
+      logo.removeClass('logo_animated');
 
+      logo.addClass('animate');
+    }
+  }, 100);
+
+  // showLogo();
   setTimeout(function () {
     heroBg.removeClass('js-active');
   }, 2000);
@@ -202,13 +212,11 @@ let downloadFlag = true;
 let musicFlag = true;
 let socialFlag = true;
 
-
-
 function loadHeroAnimation() {
   const heroIphone = document.getElementById("heroIphone"),
     anim = lottie.loadAnimation({
       container: heroIphone,
-      renderer: "svg",
+      renderer: "canvas",
       loop: false,
       autoplay: true,
       path: "./json/hero-iphone.json"
@@ -268,55 +276,6 @@ function showSocialPhone() {
       path: "./json/social-phone.json"
     });
 }
-// let lastScrollTop = 0;
-// $(window).scroll(function () {
-//   let curentScrollPosition = $(this).scrollTop();
-//   if (curentScrollPosition > lastScrollTop) {
-//     // console.log('down');
-//   }
-//   // else {
-//   //   console.log('up');
-//   //   $('.js-screen').each(function () {
-//   //     let elem = $(this);
-//   //     elem.removeClass('active');
-//   //     elem.find('.slide__item').removeClass('show');
-//   //   });
-//   // }
-//   lastScrollTop = curentScrollPosition;
-// });
-
-// function showOnScroll(scrollValue) {
-//   $('.js-screen').each(function () {
-
-//     let elem = $(this);
-//     let sectionPos = elem.offset().top;
-//     let windowPos = $(window).scrollTop() + $(window).height() / 2.6;
-
-//     if (sectionPos < windowPos) {
-//       elem.addClass('active');
-//     }
-//     if ($('.download').hasClass('active')) {
-//       if (downloadFlag) {
-//         showDownloadIphone();
-//         showDownloadPhone();
-//         downloadFlag = false;
-//       }
-//     }
-//     if ($('.music').hasClass('active')) {
-//       if (musicFlag) {
-//         showMusicPhone();
-//         musicFlag = false;
-//       }
-//     }
-//     if ($('.social').hasClass('active')) {
-//       if (socialFlag) {
-//         showSocialPhone();
-//         socialFlag = false;
-//       }
-//     }
-//   });
-// }
-
 
 function showOnScroll() {
   $('.js-screen').each(function () {
@@ -325,11 +284,15 @@ function showOnScroll() {
     let elem = $(this);
     let sectionPos = elem.offset().top;
     let windowPos = windowStartPosition + $(window).height() / 1.8;
+    let musicPosition = windowStartPosition + $(window).height();
+
     if (windowStartPosition > startPosition) {
       $('.header').addClass('scrolled');
+      logo.addClass('logo_animated');
+
     } else {
       $('.header').removeClass('scrolled');
-
+      logo.removeClass('logo_animated');
     }
     if (sectionPos < windowPos) {
       elem.addClass('active');
@@ -356,19 +319,8 @@ function showOnScroll() {
   });
 }
 
-const screen = $('.js-screen');
-let featuresSections = $('.features');
-let pointsLenght = featuresSections.length - 1;
-let pagination = $(".pagination__list");
-let paginationItem;
-// let paginationLink;
-
-// function generatePager(pagination) {
-for (let i = 0; i <= pointsLenght; i++) {
-  paginationItem = $("<li>").addClass("pagination__item").appendTo(pagination);
-}
-
 $(document).ready(function () {
+  // jQuery.scrollSpeed(100, 100);
 
   console.log('DOM завантажено');
   preloader();
@@ -393,8 +345,6 @@ $(document).ready(function () {
 
   // countdown();
   // console.log(countdown);
-
-  // $('.pagination__item').eq(activeFeatures).addClass('active');
 
   // $('.js-page').pagepiling({
   //   menu: null,
@@ -453,87 +403,72 @@ $(document).ready(function () {
   //   afterRender: function () {},
   // });
 
-  // if ($(window.width()) < 768) {
-  //   $('.section__slider').find('.section__slider__sticky').removeClass('.section__slider__sticky');
-  // }
 
-  // if ($("[data-lock-section]").length > 0) {
-  //   const slider_section = $('[data-lock-section]');
-  //   const slider_section_top = slider_section.offset().top;
-  //   const slider_section_bottom = (slider_section_top + slider_section.height()); // minus offset
-  //   const slider_section_height = slider_section.outerHeight();
-  //   let slider_counter = 0;
-  //   let slide_delta = 0;
-  //   let slide_index = 1;
-  //   const body = $("body");
+  if ($("[data-lock-section]").length > 0) {
+    const sliderSection = $('[data-lock-section]');
+    const sliderSectionTop = sliderSection.offset().top;
+    const sliderSectionBottom = (sliderSectionTop + sliderSection.height()); // minus offset
+    const sliderSectionHeight = sliderSection.height();
+    // console.log(sectionHeight);
 
-  //   $(window).scroll(function () {
-  //     // let s = window.scrollY;
-  //     $('.section__slider__sticky').stick_in_parent();
-  //     let s = window.pageYOffset;
 
-  //     // console.log(s);
-  //     if (s > slider_section_top && s < slider_section_bottom) {
+    $(window).scroll(function () {
+      $('.section__slider__sticky').stick_in_parent();
+      let scrollPosition = window.pageYOffset;
 
-  //       let ss = s - slider_section_top; // window scroll - section offset() top;
-  //       let percent = (slider_section_height - slider_section_top) / 100;
+      if (scrollPosition > sliderSectionTop && scrollPosition < sliderSectionBottom + 500) {
 
-  //       let percentage = ss / percent;
-  //       if (percentage > 100) {
-  //         percentage = 100;
-  //       }
-  //       if (percentage <= 5) {
-  //         percentage = 1;
-  //       }
-  //       // console.log(percentage);
-  //       if (percentage < 16 && percentage > 5) {
-  //         // console.log('show element: 1');
-  //         $('.slide__item').removeClass('show');
-  //         $('[data-slide="1"]').addClass('show');
-  //       }
-  //       if (percentage < 33 && percentage > 16) {
-  //         // console.log('show element: 2');
-  //         $('.slide__item').removeClass('show');
-  //         $('[data-slide="2"]').addClass('show');
-  //       }
-  //       if (percentage < 49 && percentage > 33) {
-  //         // console.log('show element: 3');
-  //         $('.slide__item').removeClass('show');
-  //         $('[data-slide="3"]').addClass('show');
-  //       }
-  //       if (percentage < 66 && percentage > 49) {
-  //         // console.log('show element: 4');
-  //         $('.slide__item').removeClass('show');
-  //         $('[data-slide="4"]').addClass('show');
-  //       }
-  //       if (percentage < 83 && percentage > 66) {
-  //         // console.log('show element: 5');
-  //         $('.slide__item').removeClass('show');
-  //         $('[data-slide="5"]').addClass('show');
-  //       }
-  //       if (percentage > 83 && percentage < 100) {
-  //         // console.log('show element: 6');
-  //         $('.slide__item').removeClass('show');
-  //         $('[data-slide="6"]').addClass('show');
-  //       }
-  //       // if (percentage > 85 && percentage < 100) {
-  //       //   // console.log('show element: 7');
-  //       //   $('.slide__item').removeClass('show');
-  //       //   // $('.slide__item').css('show');
-  //       //   $('[data-slide="7"]').addClass('show');
-  //       // }
-  //       if (percentage >= 100) {
-  //         $('.slide__item').removeClass('show');
-  //         // console.log('100');
-  //       }
-  //       if (percentage <= 2) {
-  //         $('.slide__item').removeClass('show');
-  //         // console.log('0');
-  //       }
-  //     }
+        let ss = scrollPosition - sliderSectionTop; // window scroll - section offset() top;
+        let percent = (sliderSectionHeight - sliderSectionTop) / 100;
+        let percentage = ss / percent;
+        console.log(percentage);
 
-  //   });
-  // }
+
+        if (percentage < 16, 666 && percentage > 0) {
+          $('.slide__item').removeClass('show');
+          // $('.slide__item').addClass('showed');
+          $('[data-slide="1"]').addClass('show');
+          // $('[data-slide="1"]').removeClass('showed');
+          // $('.slide__item').removeClass('showed');
+
+        }
+        if (percentage < 33.333 && percentage > 16.666) {
+          $('.slide__item').removeClass('show');
+          $('[data-slide="2"]').addClass('show');
+          // $('[data-slide="1"]').addClass('showed');
+        }
+        if (percentage < 49.93 && percentage > 33.333) {
+          $('.slide__item').removeClass('show');
+          $('[data-slide="3"]').addClass('show');
+        }
+        if (percentage < 66.593 && percentage > 49.93) {
+          $('.slide__item').removeClass('show');
+          $('[data-slide="4"]').addClass('show');
+        }
+        if (percentage < 83.259 && percentage > 66.593) {
+          $('.slide__item').removeClass('show');
+          $('[data-slide="5"]').addClass('show');
+        }
+        if (percentage > 83.259 && percentage < 100) {
+          $('.slide__item').removeClass('show');
+          $('[data-slide="6"]').addClass('show');
+        }
+        if (percentage >= 100) {
+          $('.slide__item').removeClass('show');
+          percentage = 100;
+        }
+        if (percentage <= 2) {
+          $('.slide__item').removeClass('show');
+          percentage = 1;
+        }
+        // if (percentage >= 100) {
+        // }
+        // if (percentage <= 2) {
+        // }
+        console.log(percentage);
+      }
+    });
+  }
   $(window).scroll(function () {
     const scrollValue = $(this).scrollTop();
     showOnScroll(scrollValue);
@@ -541,6 +476,53 @@ $(document).ready(function () {
   })
 
 });
+
+// if (window.addEventListener) {
+//   window.addEventListener('DOMMouseScroll', wheel, false);
+//   window.onmousewheel = document.onmousewheel = wheel;
+// }
+
+// function wheel(event) {
+//   var delta = 0;
+//   if (event.wheelDelta) delta = (event.wheelDelta) / 120;
+//   else if (event.detail) delta = -(event.detail) / 3;
+
+//   handle(delta);
+//   if (event.preventDefault) event.preventDefault();
+//   event.returnValue = false;
+// }
+
+// function handle(sentido) {
+//   var inicial = document.body.scrollTop;
+//   var time = 1000;
+//   var distance = 200;
+//   animate({
+//     delay: 0,
+//     duration: time,
+//     delta: function (p) {
+//       return p;
+//     },
+//     step: function (delta) {
+//       window.scrollTo(0, inicial - distance * delta * sentido);
+//     }
+//   });
+// }
+
+// function animate(opts) {
+//   var start = new Date();
+//   var id = setInterval(function () {
+//     var timePassed = new Date() - start;
+//     var progress = (timePassed / opts.duration);
+//     if (progress > 1) {
+//       progress = 1;
+//     }
+//     var delta = opts.delta(progress);
+//     opts.step(delta);
+//     if (progress == 1) {
+//       clearInterval(id);
+//     }
+//   }, opts.delay || 10);
+// }
 
 // detect webp support
 function testWebP(callback) {

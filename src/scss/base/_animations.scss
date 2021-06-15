@@ -26,13 +26,15 @@
 }
 
 .js-slide-top,
-.js-move-top {
+.js-move-top,
+.js-show-top {
   opacity: 0;
   transform: translate(0, 20px);
 }
 
 .js-slide-down,
-.js-move-down {
+.js-move-down,
+.js-show-down {
   opacity: 0;
   transform: translate(0, -20px);
 }
@@ -41,64 +43,11 @@
   opacity: 0;
 }
 
-// .js-show-top {
-//   opacity: 0;
-//   transform: translate(0, 20px);
-// }
-
-// .js-show-down {
-//   opacity: 0;
-//   transform: translate(0, -20px);
-// }
-
-// preload logo animation
-.preload-logo {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-
-  path {
-    fill: transparent;
-    stroke-width: 20;
-    stroke-dasharray: 950;
-    stroke-dashoffset: 950;
-    transform-origin: center;
-    // animation: preload-logo linear 4s forwards;
-  }
-}
-
-.line1 {
-  stroke: #5D8EFF;
-}
-
-.line2 {
-  stroke: #00E482;
-}
-
-@keyframes preload-logo {
-  0% {
-    stroke-dashoffset: 0;
-  }
-
-  50.1% {
-    stroke-dashoffset: 1900;
-  }
-
-  100% {
-    stroke-dashoffset: 950;
-  }
-}
-
 
 // logo animation
 .logo {
   max-width: 151px;
   position: absolute;
-  // height: 100vh;
   top: 50vh;
   left: 50vw;
   opacity: 0;
@@ -119,7 +68,7 @@
   }
 
   &.animate {
-    animation: animiateLogo 4s linear normal forwards;
+    animation: animiateLogo 3s linear normal forwards;
 
     @include d(768) {
       animation: none;
@@ -150,7 +99,7 @@
     position: absolute;
     opacity: 0;
     transition: opacity linear 1s, transform linear 1s;
-    transition-delay: 2s;
+    transition-delay: 1.5s;
 
     &._w {
       transform: translate(10%, 0);
@@ -179,12 +128,11 @@
     transform-origin: center;
     transform: translate(40%, 0);
     transition: transform 1s linear;
-    transition-delay: 2s;
+    transition-delay: 1.5s;
   }
 }
 
 @keyframes animiateLogo {
-
   0% {
     transform: translate(-50%, -50%) scale(0) rotate(0);
     top: 50vh;

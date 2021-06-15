@@ -2,22 +2,8 @@
   padding-top: 12%;
   z-index: 2;
   min-height: 100vh;
-  // &::before {
-  //   content: "";
-  //   width: 100%;
-  //   height: 100%;
-  //   background-image: url(../img/home/share-bg.png);
-  //   background-size: cover;
-  //   background-position: bottom center;
-  //   background-repeat: no-repeat;
-  //   position: absolute;
-  //   // top: 0;
-  //   bottom: -155px;
-  //   left: 0;
-  //   opacity: .2;
-  // }
+
   &__content {
-    // position: relative;
     z-index: 2;
   }
 
@@ -38,7 +24,6 @@
     height: 100%;
 
     @include d(991) {
-      // padding-top: 200px;
       top: 20%;
       height: 80%;
     }

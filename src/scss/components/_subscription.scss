@@ -5,23 +5,6 @@
     bottom: -10%;
   }
 
-  // &-waves {
-  //   position: absolute;
-  //   left: 2%;
-  //   right: 2%;
-  //   bottom: 5%;
-  //   // width: 100%;
-  //   height: 100%;
-  //   background-image: url(../img/subscription-waves.svg);
-  //   background-repeat: no-repeat;
-  //   background-position: right bottom;
-  //   background-size: contain;
-  //   filter: url("#turbulence");
-  //   transform: translate(0, 50px);
-  //   opacity: 0;
-  //   transition: transform 3s $timing, opacity 3s $timing;
-  // }
-
   &__content {
     position: relative;
     z-index: 2;
@@ -91,7 +74,6 @@
     &:nth-child(2) {
       background: linear-gradient(157.71deg, rgba(93, 142, 255, 0.5) -8.37%, rgba(0, 228, 130, 0.5) 117.63%);
       backdrop-filter: blur(11px);
-      /* Note: backdrop-filter has minimal browser support */
 
       border-radius: 15px;
       min-width: 450px;

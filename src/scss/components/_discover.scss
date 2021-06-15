@@ -3,7 +3,6 @@
     top: 100px;
     min-width: 900px;
     right: 0;
-    // transform: scale(1.1) rotate(10deg);
     opacity: 0;
     transform: translate(0, 20px);
     transition: opacity 1s $timing, transform 1s $timing;
@@ -71,11 +70,6 @@
     top: 100%;
     opacity: 0;
   }
-
-  // 10% {
-  //   top: 50%;
-  //   opacity: 1;
-  // }
 
   20% {
     top: 0;
