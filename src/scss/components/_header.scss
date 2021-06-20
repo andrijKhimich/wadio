@@ -70,12 +70,20 @@
 
 .logo_animated {
   opacity: 1;
-  top: 0;
-  left: 0;
+  // top: 0;
+  // left: 0;
+  max-width: 151px;
+  width: 151px;
+  height: auto;
+  position: static;
   transform: translate(0%, 0%) scale(1) rotate(0);
-  .logo-svg {
+
+  .logo-svg,
+  canvas {
     display: none;
+    // opacity: 0;
   }
+
   img {
     display: block;
   }
@@ -119,7 +127,8 @@
     &__item,
     li {
       &:not(:last-child) {
-        margin-bottom: 34px;
+        // margin-bottom: 34px;
+        margin-bottom: 4%;
       }
     }
 
@@ -164,7 +173,7 @@
   background-color: transparent;
   border: none;
   display: block;
-  top: -5px;
+  top: 0;
   opacity: 1;
   border: 3px solid transparent;
   pointer-events: initial;

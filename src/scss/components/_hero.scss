@@ -24,6 +24,7 @@
 
     @include d(1500) {
       max-width: 670px;
+      flex: 0 0 670px;
     }
 
     p {

@@ -17,8 +17,14 @@
     bottom: 0;
     right: -20%;
     height: 90vh;
+    max-height: 800px;
     @include d(1440) {
       height: 70vh;
+      top: -10%;
+      max-height: 700px;
+    }
+    @include d(1366) {
+
     }
   }
 

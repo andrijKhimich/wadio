@@ -36,10 +36,9 @@
     width: 100%;
     position: absolute;
     top: 50%;
-    // bottom: 0;
-    // right: 0;
     left: 50%;
     height: 90vh;
+    max-height: 900px;
     transform: translate(-50%, -50%);
 
     @include d(1440) {
