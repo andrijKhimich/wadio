@@ -14,17 +14,18 @@
     max-width: 100%;
     position: absolute;
     top: -20%;
-    bottom: 0;
+    // bottom: 0;
     right: -20%;
     height: 90vh;
     max-height: 800px;
     @include d(1440) {
-      height: 70vh;
-      top: -10%;
+      height: 50vw;
+      // top: -10%;
       max-height: 700px;
+      right: -25vw;
     }
-    @include d(1366) {
-
+    @include d(1024) {
+      top: 0;
     }
   }
 

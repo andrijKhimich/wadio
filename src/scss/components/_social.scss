@@ -23,8 +23,13 @@
     transition: transform 3s $timing, opacity 3s $timing;
 
     @include d(1440) {
-      left: -8%;
+      left: -19%;
       top: -30%;
+    }
+
+    @include d(1024) {
+      left: -12%;
+      top: -10%;
     }
   }
 
@@ -42,7 +47,12 @@
     transform: translate(-50%, -50%);
 
     @include d(1440) {
-      height: 70vh;
+      height: 50vw;
+      left: 40%;
+    }
+
+    @include d(1024) {
+      height: 60vw;
     }
   }
 

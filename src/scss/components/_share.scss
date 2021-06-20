@@ -22,7 +22,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-
+    @include d(1024) {
+      top: 10vw;
+    }
     @include d(991) {
       top: 20%;
       height: 80%;

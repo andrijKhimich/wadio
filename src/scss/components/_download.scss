@@ -11,7 +11,8 @@
 
     @include d(1440) {
       height: 70vh;
-      right: -10%;
+      right: -15%;
+      top: -12%;
     }
   }
 
@@ -42,7 +43,15 @@
     transition-delay: .4s;
   }
 
-  // &-video {
+  &__content {
+    @include d(1440) {
+      max-width: 640px;
+      flex: 0 0 640px;
+    }
 
-  // }
+    @include d(1024) {
+      max-width: 570px;
+      flex: 0 0 570px;
+    }
+  }
 }

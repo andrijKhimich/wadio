@@ -74,7 +74,7 @@ h6 {
 
 h1,
 h2 {
-  @include adaptivePcFont(85, 35);
+  @include adaptivePcFont(70, 35);
   line-height: 1.286em;
   text-transform: uppercase;
   margin: 20px 0;
@@ -84,7 +84,7 @@ h2 {
   }
 
   @include d(767) {
-    @include adaptiveMobFont(85, 35)
+    @include adaptiveMobFont(70, 35)
   }
 }
 
@@ -95,14 +95,6 @@ h3 {
   margin: 16px 20px 16px 0;
   letter-spacing: .06em;
   @include adaptivePcFont(70, 35);
-
-  // @include d(1440) {
-  //   font-size: 58px;
-  // }
-
-  // @include d(1299) {
-  //   font-size: 50px;
-  // }
 
   @include d(991) {
     margin: 10px 0;

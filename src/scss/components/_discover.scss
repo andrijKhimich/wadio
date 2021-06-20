@@ -7,16 +7,26 @@
     opacity: 0;
     transform: translate(0, 20px);
     transition: opacity 1s $timing, transform 1s $timing;
+
     // position: relative;
     @include d(1600) {
       min-width: auto;
       max-width: 800px;
     }
-      @include d(1500) {
+
+    @include d(1500) {
       max-width: 700px;
     }
+
     @include d(1440) {
       max-width: 640px;
+    }
+
+    @include d(1280) {
+      max-width: 520px;
+    }
+    @include d(1024) {
+      top: 220px;
     }
   }
 
@@ -29,36 +39,65 @@
       position: relative;
       top: 100%;
       left: 0;
+      height: 100%;
+
+      img,
+      picture {
+        height: 100%;
+        width: auto;
+      }
     }
 
     &_1 {
       top: 50%;
       left: 25%;
       height: 131px;
+
+      @include d(1280) {
+        // height: auto;
+        // width: 140px;
+        height: 120px;
+        // width: 100%;
+      }
     }
 
     &_2 {
       top: 0;
       left: 25%;
       height: 138px;
+
+      @include d(1280) {
+        height: 110px;
+        left: 25%;
+      }
     }
 
     &_3 {
       top: 5%;
       left: 53%;
       height: 126px;
+
+      @include d(1280) {
+        height: 100px;
+        left: 55%;
+      }
     }
 
     &_4 {
       top: 37%;
       right: 0;
       height: 132px;
+
       @include d(1600) {
         right: -50px;
       }
+
       @include d(1440) {
         right: -100px;
         // width: 100px;
+      }
+      @include d(1280) {
+        height: 110px;
       }
     }
 
@@ -66,18 +105,27 @@
       top: 30%;
       right: 43%;
       height: 30px;
+      @include d(1280) {
+        top: 40%;
+      }
     }
 
     &_6 {
       top: 10%;
       left: 10%;
       height: 30px;
+      @include d(1280) {
+        top: 15%;
+      }
     }
 
     &_7 {
       bottom: 50%;
       left: 50%;
       height: 22px;
+      @include d(1280) {
+        bottom: 20%;
+      }
     }
   }
 }

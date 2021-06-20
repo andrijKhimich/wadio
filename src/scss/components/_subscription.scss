@@ -48,6 +48,7 @@
 
       @include d(1299) {
         padding: 40px;
+        flex: 0 0 33.333%;
       }
 
       @include d(991) {
@@ -82,9 +83,9 @@
       text-align: center;
       z-index: 1;
 
-      @include d(1299) {
+      @include d(1280) {
         min-width: auto;
-        width: 350px;
+        flex: 0 0 33.333%;
         height: auto;
         padding: 30px 30px 20px 30px;
       }
