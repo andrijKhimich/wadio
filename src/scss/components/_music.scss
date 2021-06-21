@@ -1,9 +1,19 @@
 .music {
   padding-top: 0;
   margin-top: -500px;
+
   .section-video {
     bottom: -10%;
     transition: transform 3s $timing, opacity 3s $timing;
+
+    @include d(991) {
+      background-image: url(../img/music-waves.svg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 30vh;
+      bottom: 0;
+    }
   }
 
 
@@ -18,14 +28,27 @@
     right: -20%;
     height: 90vh;
     max-height: 800px;
+
     @include d(1440) {
       height: 50vw;
       // top: -10%;
       max-height: 700px;
       right: -25vw;
     }
+
     @include d(1024) {
       top: 0;
+    }
+
+    @include d(991) {
+      position: static;
+      height: auto;
+    }
+  }
+
+  &__img {
+    @include d(991) {
+      max-width: 240px;
     }
   }
 
@@ -35,6 +58,10 @@
     position: absolute;
     top: 0;
     right: 0;
+
+    @include d(991) {
+      display: none;
+    }
 
     canvas {
       width: 100%;

@@ -26,16 +26,16 @@
       top: 10vw;
     }
     @include d(991) {
-      top: 20%;
+      top: 25%;
       height: 80%;
     }
 
-    @include d(768) {
+    @include d(767) {
       // position: relative;
       // height: auto;
       // display: flex;
       height: 70%;
-      top: 30%;
+      top: 20%;
     }
 
     &__item {
@@ -44,60 +44,87 @@
       position: absolute;
       opacity: 0;
 
-      // @include d(768) {
+      // @include d(767) {
       //   position: relative;
       //   top: 0;
       //   left: 0;
       //   bottom: 0;
       //   right: 0;
       // }
-      @include d(768) {
+      @include d(767) {
         width: 60px;
       }
 
       &._1 {
         top: 28%;
         left: 22%;
+        @include d(575) {
+          left: 33%;
+        }
       }
 
       &._2 {
         top: 21%;
         right: 21%;
+           @include d(575) {
+          right: 28%;
+        }
       }
 
       &._3 {
         top: 33%;
         left: 11%;
+           @include d(575) {
+          left: 10%;
+        }
       }
 
       &._4 {
         top: 32%;
         right: 11%;
+           @include d(575) {
+          right: 10%;
+        }
       }
 
       &._5 {
         top: 48%;
         left: 23%;
+           @include d(575) {
+          left: 28%;
+        }
       }
 
       &._6 {
         top: 46%;
         right: 15%;
+           @include d(575) {
+          // left: 15%;
+        }
       }
 
       &._7 {
         top: 56%;
         left: 9%;
+           @include d(575) {
+          // left: 33%;
+        }
       }
 
       &._8 {
         top: 51%;
         right: 25%;
+           @include d(575) {
+          right: 33%;
+        }
       }
 
       &._9 {
         top: 64%;
         left: 17%;
+           @include d(575) {
+          left: 30%;
+        }
       }
 
       &._10 {

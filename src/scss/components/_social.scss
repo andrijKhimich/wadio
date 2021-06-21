@@ -31,10 +31,25 @@
       left: -12%;
       top: -10%;
     }
+
+    @include d(991) {
+      top: -20vw;
+      left: -50vw;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      // transform: translate(-50%, -50%);
+    }
   }
 
   &__img {
     position: relative;
+
+    @include d(991) {
+      order: 1;
+      max-width: 260px;
+      margin: 0 auto;
+    }
   }
 
   &__media {
@@ -53,6 +68,10 @@
 
     @include d(1024) {
       height: 60vw;
+    }
+
+    @include d(991) {
+      display: none;
     }
   }
 

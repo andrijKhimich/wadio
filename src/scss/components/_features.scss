@@ -29,7 +29,7 @@
     animation: featuresFinish 2s linear 1 backwards;
     transition: all 1s $timing;
 
-    @include d(768) {
+    @include d(767) {
       max-width: 100%;
       margin: 0 auto;
       display: none;
@@ -194,7 +194,7 @@
   width: 100%;
   height: 100vh;
 
-  @include d(768) {
+  @include d(767) {
     // padding-top: 200px;
   }
 }

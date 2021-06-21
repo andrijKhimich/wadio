@@ -14,6 +14,12 @@
       right: -15%;
       top: -12%;
     }
+
+    @include d(991) {
+      position: static;
+      height: auto;
+
+    }
   }
 
   &__iphone,
@@ -23,6 +29,10 @@
     position: absolute;
     top: 0;
     right: 0;
+
+    @include d(991) {
+      display: none;
+    }
 
     canvas {
       width: 100%;
@@ -52,6 +62,11 @@
     @include d(1024) {
       max-width: 570px;
       flex: 0 0 570px;
+    }
+
+    @include d(991) {
+      flex: 0 0 100%;
+      max-width: 100%;
     }
   }
 }

@@ -8,6 +8,10 @@
   transition: transform 1s $timing, opacity 1s $timing;
   position: relative;
 
+  @include d(767) {
+    padding-top: 0;
+  }
+
   &::before {
     content: "";
     width: 100%;
@@ -31,6 +35,14 @@
     width: 100%;
     height: 100vh;
 
+    @include d(991) {
+      bottom: 60vw;
+    }
+
+    @include d(767) {
+      bottom: 300px;
+    }
+
     &::after {
       content: "";
       width: 900px;
@@ -42,11 +54,33 @@
       background: linear-gradient(157.71deg, rgba(51, 0, 255, 0.6) -8.37%, rgba(9, 255, 149, 0.6) 117.63%);
       filter: blur(100px);
       border-radius: 50%;
-      opacity: .3;
+      opacity: .7;
+
+      @include d(991) {
+        // top: 0;
+        // opacity: .7;
+      }
+    }
+
+    img {
+      display: none;
+
+      @include d(991) {
+        display: block;
+        // top: -50vw;
+        // position: relative;
+        // width: 100%;
+        // height: auto;
+      }
     }
 
     video {
       width: 100%;
+
+      @include d(991) {
+        display: none;
+      }
+
     }
   }
 
@@ -66,7 +100,7 @@
       padding: 50px;
     }
 
-    @include d(768) {
+    @include d(767) {
       padding: 20px;
     }
 
@@ -109,7 +143,7 @@
       height: 400px;
     }
 
-    @include d(768) {
+    @include d(767) {
       display: none;
     }
   }
@@ -225,7 +259,7 @@
     font-size: 13px;
     box-sizing: border-box;
 
-    @include d(768) {
+    @include d(767) {
       flex: 0 0 50%;
       margin-bottom: 20px;
     }
