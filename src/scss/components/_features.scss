@@ -29,10 +29,16 @@
     animation: featuresFinish 2s linear 1 backwards;
     transition: all 1s $timing;
 
+    @include d(991) {
+      // max-width: 100%;
+      // margin: 0 auto;
+      display: none;
+    }
+
     @include d(767) {
       max-width: 100%;
-      margin: 0 auto;
-      display: none;
+      // margin: 0 auto;
+      // display: none;
     }
 
     @include rh(1024) {
@@ -49,15 +55,82 @@
     }
   }
 
-  &__shine,
-  picture {
+  &__shine {
     position: absolute;
+    // top: 50%;
     top: 0;
+    // transform: translate(0, -50%);
     left: 0;
-    width: 100vh;
-    z-index: -1;
+    width: 55vw;
     height: 100vh;
-    opacity: .4;
+    z-index: -1;
+    // height: 100vh;
+    // opacity: .8;
+    opacity: 0;
+    transform: translate(0, 30px);
+    transition: transform $timing 1s, opacity $timing 1s;
+
+    @include d(991) {
+      // width: 100%;
+      // height: 100%;
+      // max-width: 80vw;
+      // max-height: 80vh;
+      width: 500px;
+      height: 500px;
+      top: 100vh;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      content: "";
+      width: 1000px;
+      height: 1000px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url(../img/home/features-ellipse.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: .8;
+      border-radius: 50%;
+    }
+
+    img,
+    picture {
+      display: none;
+
+      @include d(991) {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        width: 100%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+      width: 100%;
+      transform: translate(-50%, -50%);
+
+      @include d(991) {
+        display: none;
+      }
+    }
   }
 
   &__video {
@@ -95,6 +168,9 @@
       max-width: 190px;
     }
 
+    // @include d(991) {
+    //   display: none;
+    // }
     &_1 {
       transform-origin: center;
     }
@@ -177,20 +253,22 @@
 .slide__item {
   position: absolute;
   z-index: 1;
+
   // flex: 0 0 100%;
-  top: 50%;
-  // top: 0;
-  transform: translate(0, -50%);
+  // top: 50%;
+  top: 0;
+  // transform: translate(0, -50%);
   left: 0;
   opacity: 0;
   // opacity: 1;
-  position: relative;
+  // position: relative;
   pointer-events: none;
   // min-height: 100vh;
   // margin-top: auto;
   // margin-bottom: 0;
   display: flex;
   align-items: center;
+  // flex-wrap: wrap;
   width: 100%;
   height: 100vh;
 
@@ -260,6 +338,13 @@
 //   }
 // }
 
-.section__slider__sticky {
+.section__slider_sticky {
   // height: 100%;
+  @include d(991) {
+    // height: 100%;
+  }
+}
+
+.disable-click.show {
+  pointer-events: none;
 }

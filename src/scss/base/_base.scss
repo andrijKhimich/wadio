@@ -64,14 +64,6 @@ h6 {
   color: $titleColor;
 }
 
-.h11 {
-  font-size: 70px;
-
-  @include d(320) {
-    font-size: 30px;
-  }
-}
-
 h1,
 h2 {
   @include adaptivePcFont(70, 35);
@@ -263,6 +255,14 @@ ol {
   }
 
   &.active {
+    .features__shine {
+      opacity: 1;
+      transform: translate(0, 0);
+
+      @include d(991) {
+        transform: translate(-50%, -50%);
+      }
+    }
 
     .js-move-top,
     .js-move-down,

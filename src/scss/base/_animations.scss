@@ -30,6 +30,17 @@
 .js-show-top {
   opacity: 0;
   transform: translate(0, 20px);
+  // @include d(991) {
+  //   opacity: 1;
+  //   transform: translate(0,0);
+  // }
+}
+
+.js-slide-top {
+  @include d(991) {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
 
 .js-slide-down,
@@ -53,6 +64,14 @@
   top: 0;
   left: 0;
   transition: width $duration $timing;
+
+  @include d(991) {
+    max-width: 150px;
+    width: auto;
+    height: auto;
+    position: static;
+  }
+
   // transform: translate(-50%, -50%);
   // top: 50vh;
   // left: 50vw;
@@ -70,12 +89,16 @@
     // width: 151px !important; 
     opacity: 1;
     transition: opacity $duration $timing;
+
+    @include d(991) {
+      display: none;
+    }
   }
 
   img {
     display: none;
 
-    @include d(768) {
+    @include d(991) {
       display: block;
     }
   }

@@ -8,6 +8,10 @@
   padding: 31px 0;
   transition: padding .6s $timing;
 
+  @include d(767) {
+    padding: 20px 0;
+  }
+
   &.scrolled {
     padding: 15px 0 10px 0;
 
