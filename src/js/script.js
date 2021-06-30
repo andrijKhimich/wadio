@@ -24,11 +24,31 @@ function enableScroll() {
 
 
 
-$(window).on('load', function () {
-  // alert('page is loaded');
-  console.log('page is loaded');
+// $(window).on('load', function () {
+//   // alert('page is loaded');
+//   console.log('page is loaded');
 
-});
+//   // function loadData() {
+//   //   return new Promise((resolve, reject) => {
+//   //     // setTimeout не является частью решения
+//   //     // Код ниже должен быть заменен на логику подходящую для решения вашей задачи
+//   //     setTimeout(resolve, 2000);
+//   //   })
+//   // }
+
+//   // loadData()
+//   //   .then(() => {
+//   //     let preloaderEl = document.getElementById('preloader');
+//   //     preloaderEl.classList.add('hidden');
+//   //     preloaderEl.classList.remove('visible');
+//   //   });
+//   $(window).load(function () {
+//     setTimeout(function () {
+//       $('#preloader').fadeOut('slow', function () {});
+//     }, 2000);
+
+//   });
+// });
 // const lottie = require("../libs/lottie.js");
 
 
@@ -198,26 +218,77 @@ $(window).on('load', function () {
 const heroBg = $('.js-hero-bg');
 const logo = $('.logo');
 const showOnLoadEl = $('.js-show-on-load');
-// console.log(showOnLoadEl);
+
+// function countdown() {
+//   let count = 0;
+//   let timerId = setInterval(function () {
+//     count++;
+//     console.log(count);
+
+//     if (count == 100) {
+//       count = 0;
+//     }
+//   }, 10);
+// }
+
+// countdown();
+
+let loaderStep = 0;
+
+function loder() {
+  if (loaderStep == 0) {
+    loaderStep = 1;
+    const elemWrap = document.querySelector(".progress-wrap");
+    const elem = document.querySelector(".progress-bar");
+    const valueElem = document.querySelector(".progress-value");
+
+    let width = 1;
+    const id = setInterval(frame, 20);
+
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+        valueElem.innerHTML = width + "%";
+      }
+    }
+
+    setTimeout(function () {
+      elemWrap.style.opacity = '0';
+    }, 2000);
+  }
+}
+
+
+
 
 function preloader() {
 
-  logo.addClass('animate');
-  setTimeout(function () {
-    if ($('.header').hasClass('scrolled')) {
-      logo.addClass('logo_animated');
-    }
-  }, 100);
-
-  showLogoAnimation();
+  loder();
 
   setTimeout(function () {
-    heroBg.removeClass('js-active');
-  }, 2000);
 
-  setTimeout(function () {
-    showOnLoadEl.removeClass('js-slide-top js-slide-down');
-  }, 4000);
+    logo.addClass('animate');
+    setTimeout(function () {
+      if ($('.header').hasClass('scrolled')) {
+        logo.addClass('logo_animated');
+      }
+    }, 100);
+
+    showLogoAnimation();
+
+    setTimeout(function () {
+      heroBg.removeClass('js-active');
+    }, 2000);
+
+    setTimeout(function () {
+      showOnLoadEl.removeClass('js-slide-top js-slide-down');
+    }, 4000);
+  }, 3000)
+
 }
 
 
@@ -263,7 +334,7 @@ function loadHeroAnimation() {
 
 setTimeout(function () {
   loadHeroAnimation();
-}, 3400);
+}, 6400);
 
 function showLogoAnimation() {
   const logo = document.getElementById("logo"),
@@ -421,6 +492,34 @@ function showOnScroll() {
 // }
 
 $(document).ready(function () {
+
+  $(window).on('load', function () {
+    // alert('page is loaded');
+    console.log('page is loaded');
+
+    // function loadData() {
+    //   return new Promise((resolve, reject) => {
+    //     // setTimeout не является частью решения
+    //     // Код ниже должен быть заменен на логику подходящую для решения вашей задачи
+    //     setTimeout(resolve, 2000);
+    //   })
+    // }
+
+    // loadData()
+    //   .then(() => {
+    //     let preloaderEl = document.getElementById('preloader');
+    //     preloaderEl.classList.add('hidden');
+    //     preloaderEl.classList.remove('visible');
+    //   });
+    // $(window).load(function () {
+    setTimeout(function () {
+      $('#preloader').fadeOut('slow', function () {});
+    }, 2000);
+
+    // });
+  });
+
+
   // serch active block
   // $(document).mouseup(function (e) {
   //   var searchcontainer = $('.header');
@@ -482,7 +581,7 @@ $(document).ready(function () {
   // jQuery.scrollSpeed(100, 100);
 
   console.log('DOM завантажено');
-  if ($(window).width > 991) {
+  if ($(window).width() > 991) {
     preloader();
   }
 
@@ -563,7 +662,7 @@ $(document).ready(function () {
   //   afterLoad: function (anchorLink, index) {},
   //   afterRender: function () {},
   // });
-
+  let startScroll = 0;
   $('.section__slider_sticky').stick_in_parent();
 
   if ($("[data-lock-section]").length > 0) {
@@ -574,164 +673,277 @@ $(document).ready(function () {
     // $('.section__slider_sticky').stick_in_parent();
 
     $(window).scroll(function () {
-      // console.log('fixed');
-      let scrollPosition = window.pageYOffset;
+      let scrollPosition = $(this).scrollTop();
+      // let scrollPosition = window.pageYOffset;
 
       if (scrollPosition > sliderSectionTop && scrollPosition < sliderSectionBottom + 500) {
-
         let ss = scrollPosition - sliderSectionTop; // window scroll - section offset() top;
         let percent = (sliderSectionHeight - sliderSectionTop) / 100;
         let percentage = ss / percent;
-        // console.log(percentage);
+        if (scrollPosition > startScroll) {
+          console.log('scroll down');
 
-        if (percentage <= 16, 666 && percentage > 0) {
-          $('.slide__item').removeClass('show');
-          // $('.slide__item').addClass('showed');
-          $('[data-slide="1"]').addClass('show');
-          $('[data-slide="1"]').hover(function () {
-            disableScroll();
+
+
+
+
+          // console.log(percentage);
+
+          if (percentage <= 16, 666 && percentage > 0) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="1"]').addClass('show');
+            $('[data-slide="1"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+          }
+
+          if (percentage <= 33.333 && percentage > 16.666) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="2"]').addClass('show');
+            $('[data-slide="1"]').addClass('showed');
             setTimeout(function () {
-              enableScroll();
-            }, 100);
-          });
-        }
-
-        if (percentage <= 33.333 && percentage > 16.666) {
-          $('.slide__item').removeClass('show');
-          $('[data-slide="2"]').addClass('show');
-          // stopFlag = true;
-          $('[data-slide="2"]').hover(function () {
-            disableScroll();
+              $('[data-slide="1"]').removeClass('showed');
+            }, 1000);
+            $('[data-slide="2"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+          }
+          if (percentage <= 49.93 && percentage > 33.333) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="3"]').addClass('show');
+            $('[data-slide="2"]').addClass('showed');
             setTimeout(function () {
-              enableScroll();
-            }, 100);
-          });
-          // pauseOnSection()
-          // if (stopFlag) {
-          //   disableScroll();
-          //   setTimeout(function () {
-          //     enableScroll()
-          //     // stopFlag = false;
-          //   }, 1000);
-          // }
-          // console.log(stopFlag);
+              $('[data-slide="2"]').removeClass('showed');
+            }, 1000);
+            $('[data-slide="3"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+            // pauseOnSection()
+            // stopFlag = true;
 
-          // $('[data-slide="1"]').addClass('showed');
-        }
-        if (percentage <= 49.93 && percentage > 33.333) {
-          $('.slide__item').removeClass('show');
-          $('[data-slide="3"]').addClass('show');
-          $('[data-slide="3"]').hover(function () {
-            disableScroll();
+            // if (stopFlag) {
+            //   disableScroll();
+            //   setTimeout(function () {
+            //     // stopFlag = false;
+            //     enableScroll()
+            //   }, 1000);
+            // }
+            // stopFlag = false;
+
+          }
+          if (percentage <= 66.593 && percentage > 49.93) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="4"]').addClass('show');
+            $('[data-slide="3"]').addClass('showed');
             setTimeout(function () {
-              enableScroll();
-            }, 100);
-          });
-          // pauseOnSection()
-          // stopFlag = true;
+              $('[data-slide="3"]').removeClass('showed');
+            }, 1000)
+            $('[data-slide="4"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+            // pauseOnSection()
+            // stopFlag = true;
 
-          // if (stopFlag) {
-          //   disableScroll();
-          //   setTimeout(function () {
-          //     // stopFlag = false;
-          //     enableScroll()
-          //   }, 1000);
-          // }
-          // stopFlag = false;
+            // if (stopFlag) {
+            //   disableScroll();
+            //   setTimeout(function () {
+            //     enableScroll()
+            //   }, 1000);
+            //   // stopFlag = false;
 
-        }
-        if (percentage <= 66.593 && percentage > 49.93) {
-          $('.slide__item').removeClass('show');
-          $('[data-slide="4"]').addClass('show');
-          $('[data-slide="4"]').hover(function () {
-            disableScroll();
+            // }
+            // stopFlag = false;
+
+          }
+          if (percentage <= 83.259 && percentage > 66.593) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="5"]').addClass('show');
+            $('[data-slide="4"]').addClass('showed');
             setTimeout(function () {
-              enableScroll();
-            }, 100);
-          });
-          // pauseOnSection()
-          // stopFlag = true;
+              $('[data-slide="4"]').removeClass('showed');
+            }, 1000)
+            $('[data-slide="5"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+            // pauseOnSection()
+            // stopFlag = true;
 
-          // if (stopFlag) {
-          //   disableScroll();
-          //   setTimeout(function () {
-          //     enableScroll()
-          //   }, 1000);
-          //   // stopFlag = false;
+            // if (stopFlag) {
+            //   disableScroll();
+            //   setTimeout(function () {
+            //     stopFlag = false;
+            //     enableScroll()
+            //   }, 1000);
+            // }
+            // stopFlag = false;
 
-          // }
-          // stopFlag = false;
-
-        }
-        if (percentage <= 83.259 && percentage > 66.593) {
-          $('.slide__item').removeClass('show');
-          $('[data-slide="5"]').addClass('show');
-          $('[data-slide="5"]').hover(function () {
-            disableScroll();
+          }
+          if (percentage > 83.259 && percentage <= 100) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="6"]').addClass('show');
+            $('[data-slide="5"]').addClass('showed');
             setTimeout(function () {
-              enableScroll();
-            }, 100);
-          });
-          // pauseOnSection()
-          // stopFlag = true;
+              $('[data-slide="5"]').removeClass('showed');
+            }, 1000)
+            // pauseOnSection()
+            // stopFlag = true;
+            $('[data-slide="6"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
 
-          // if (stopFlag) {
-          //   disableScroll();
-          //   setTimeout(function () {
-          //     stopFlag = false;
-          //     enableScroll()
-          //   }, 1000);
-          // }
-          // stopFlag = false;
+            // if (stopFlag) {
+            //   disableScroll();
+            //   setTimeout(function () {
+            //     stopFlag = false;
+            //     enableScroll()
+            //   }, 1000);
+            // }
+            // stopFlag = false;
 
-        }
-        if (percentage > 83.259 && percentage <= 100) {
-          $('.slide__item').removeClass('show');
-          $('[data-slide="6"]').addClass('show');
-          // pauseOnSection()
-          // stopFlag = true;
-          $('[data-slide="6"]').hover(function () {
-            disableScroll();
+          }
+          if (percentage >= 100) {
+            $('.slide__item').removeClass('show');
+            percentage = 100;
+          }
+          console.log(percentage);
+        } else {
+          console.log('scroll up');
+          if (percentage <= 16, 666 && percentage > 0) {
+            $('.slide__item').removeClass('show');
+            // $('.slide__item').addClass('showed');
+            $('[data-slide="1"]').addClass('show');
+            $('[data-slide="2"]').addClass('showed');
             setTimeout(function () {
-              enableScroll();
-            }, 100);
-          });
+              $('[data-slide="2"]').removeClass('showed');
+            }, 1000);
+            $('[data-slide="1"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+          }
 
-          // if (stopFlag) {
-          //   disableScroll();
-          //   setTimeout(function () {
-          //     stopFlag = false;
-          //     enableScroll()
-          //   }, 1000);
-          // }
-          // stopFlag = false;
+          // 2 element
+          if (percentage <= 33.333 && percentage > 16.666) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="2"]').addClass('show');
+            $('[data-slide="2"]').removeClass('showed');
+
+            $('[data-slide="3"]').addClass('showed');
+            setTimeout(function () {
+              $('[data-slide="3"]').removeClass('showed');
+            }, 1000);
+            $('[data-slide="2"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+          }
+
+          // 3 element
+          if (percentage <= 49.93 && percentage > 33.333) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="3"]').addClass('show');
+            $('[data-slide="4"]').addClass('showed');
+            setTimeout(function () {
+              $('[data-slide="4"]').removeClass('showed');
+            }, 1000)
+            $('[data-slide="3"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+
+          }
+
+          // 4 element
+          if (percentage <= 66.593 && percentage > 49.93) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="4"]').addClass('show');
+            $('[data-slide="5"]').addClass('showed');
+            setTimeout(function () {
+              $('[data-slide="5"]').removeClass('showed');
+            }, 1000)
+            $('[data-slide="4"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+
+          }
+          // 5 element
+          if (percentage <= 83.259 && percentage > 66.593) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="5"]').addClass('show');
+            $('[data-slide="6"]').addClass('showed');
+            setTimeout(function () {
+              $('[data-slide="6"]').removeClass('showed');
+            }, 1000)
+            $('[data-slide="5"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+
+          }
+          // 6 element
+          if (percentage > 83.259 && percentage <= 100) {
+            $('.slide__item').removeClass('show');
+            $('[data-slide="6"]').addClass('show');
+            $('[data-slide="6"]').hover(function () {
+              disableScroll();
+              setTimeout(function () {
+                enableScroll();
+              }, 100);
+            });
+          }
+
+          if (percentage >= 100) {
+            $('.slide__item').removeClass('show');
+            percentage = 100;
+          }
+          console.log(percentage);
 
         }
-        if (percentage >= 100) {
-          $('.slide__item').removeClass('show');
-          percentage = 100;
-        }
-        // if (percentage <= 2) {
-        //   $('.slide__item').removeClass('show');
-        //   percentage = 1;
-        // }
-        // if (percentage >= 100) {
-        // }
-        // if (percentage <= 2) {
-        // }
-        // console.log(percentage);
+        startScroll = scrollPosition;
       }
+
+      // console.log('fixed');
+
     });
   }
 
-  let startScroll = 0;
-  $(window).scroll(function () {
-    const scrollValue = $(this).scrollTop();
-    showOnScroll(scrollValue);
-    scrollValue >= 1 ? closeMenu() : null;
 
-    // let scrollValue = $(this).scrollTop();
-    if (scrollValue > $('.music').offset().top - ($('.music').height() * 2)) {
+  $(window).scroll(function () {
+    const scrollPosition = $(this).scrollTop();
+    showOnScroll(scrollPosition);
+    scrollPosition >= 1 ? closeMenu() : null;
+
+    // let scrollPosition = $(this).scrollTop();
+    if (scrollPosition > $('.music').offset().top - ($('.music').height() * 2)) {
       // $('.features__shine').hide();
       $('.features__shine').css('opacity', '0');
       console.log('yes');
@@ -739,31 +951,43 @@ $(document).ready(function () {
       // $('.features__shine').fadeIn(1000)
       $('.features__shine').css('opacity', '1');
     }
-    if (scrollValue > startScroll) {
-      console.log('scroll down');
+    if (scrollPosition > startScroll) {
+      // console.log('scroll down');
 
     } else {
-      console.log('scroll up');
+      // console.log('scroll up');
       if (!$('.section__slider_sticky').hasClass('is_stuck')) {
         $('[data-slide=1]').removeClass('show');
         $('.features__shine').css('opacity', '0');
       }
 
-      if (scrollValue <= $('[data-slide="1"]').offset().top && $('[data-slide="1"]').hasClass('show')) {
+      if (scrollPosition <= $('[data-slide="1"]').offset().top && $('[data-slide="1"]').hasClass('show')) {
         $('[data-slide="1"]').addClass('disable-click');
       } else {
         $('[data-slide="1"]').removeClass('disable-click');
       }
 
-      if (scrollValue < $('.section__slider').offset().top) {
+      if (scrollPosition < $('.section__slider').offset().top) {
         $('.section__slider').removeClass('active');
       }
+
+      // $('.features__media').css('transition-delay', .6 + 's');
+
+
     }
-    startScroll = scrollValue;
+    startScroll = scrollPosition;
 
   })
 
 });
+
+window.onload = function () {
+  document.body.classList.add('no-scroll');
+  window.setTimeout(function () {
+    // document.body.classList.add('loaded');
+    document.body.classList.remove('no-scroll');
+  }, 1500);
+}
 
 // if (window.addEventListener) {
 //   window.addEventListener('DOMMouseScroll', wheel, false);

@@ -861,3 +861,53 @@ textarea {
   opacity: 0;
   transition: transform 3s $timing, opacity 3s $timing;
 }
+
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}
+
+.progress {
+  width: 200px;
+  background-color: $primary-blue;
+  position: relative;
+
+  &-wrap {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s linear;
+  }
+
+  &-bar {
+    width: 1%;
+    height: 2px;
+    background-color: $primary-green;
+
+  }
+
+  &-value {
+    font-size: 16px;
+    color: $primary-blue;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+  }
+}
