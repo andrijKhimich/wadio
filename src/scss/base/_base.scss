@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  scrollbar-width: none !important
+}
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -22,22 +26,30 @@ body {
   -webkit-text-size-adjust: 100%;
   backface-visibility: hidden;
   text-rendering: geometricPrecision;
-
+  scrollbar-width: none;
+  /*IE10+*/
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+    -ms-overflow-style: none;
   @include d(1500) {
     font-size: 16px;
   }
 
-  //style default scrollbar
-  &::-webkit-scrollbar {
-    width: 6px;
-    background-color: $black;
-    display: none;
-  }
+
+
+  // style default scrollbar
 
   &::-webkit-scrollbar-track {
     display: none;
     -webkit-box-shadow: inset 0 0 4px $textColor;
     box-shadow: inset 0 0 4px $textColor;
+  }
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+    display: none;
+
   }
 
   &::-webkit-scrollbar-thumb {
@@ -47,6 +59,7 @@ body {
     transition: background-color 0.4s ease;
   }
 }
+
 
 .no-scroll {
   overflow: hidden;
@@ -910,4 +923,10 @@ textarea {
     transform: translate(-50%, 0);
 
   }
+}
+
+
+lottie-player {
+  min-width: 100%;
+  min-height: 100%;
 }

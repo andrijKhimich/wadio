@@ -1,11 +1,11 @@
 // footer styles
 .footer {
   padding-top: 155px;
-  z-index: 1;
-  transform: translate(0, 20px);
+  // z-index: 1;
+  // transform: translate(0, 20px);
   z-index: 2;
-  opacity: 0;
-  transition: transform 1s $timing, opacity 1s $timing;
+  // opacity: 0;
+  // transition: transform 1s $timing, opacity 1s $timing;
   position: relative;
 
   @include d(767) {
